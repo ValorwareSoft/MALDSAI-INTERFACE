@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router, Event } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -9,18 +10,28 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
-  constructor(
-    private router: Router
-  ) { }
-  navigate(link: string) {
-    switch (link) {
-      case 'home':
-        this.router.navigate(['/home']);
-        break;
-      case 'contact-us':
-        this.router.navigate(['/contact-us']);
-        break;
-    }
+export class NavbarComponent implements OnInit {
+  currentRoute: string = '';
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    this.setActiveRoute(this.router.url);
+
+    this.router.events
+      .pipe(filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.setActiveRoute(event.urlAfterRedirects);
+      });
+  }
+
+  navigate(link: string): void {
+    this.currentRoute = link;
+    this.router.navigate([`/${link}`]);
+  }
+
+  private setActiveRoute(url: string): void {
+    const route = url.split('/')[1]; 
+    this.currentRoute = route ? route : 'home';
   }
 }
