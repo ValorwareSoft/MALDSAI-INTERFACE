@@ -11,43 +11,67 @@
     .wrapper {
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
+        min-height: calc(100vh - 56px);
+        padding: 15px 15px;
+        padding-bottom: 0px !important;
+        margin-top: 56px;
+        overflow: scroll;
 
-        .content {
-            // height: 100vh !important;
-            padding: 15px 15px;
-            padding-bottom: 0px !important;
-            margin-top: 60px !important;
-            flex: 1;
-            overflow-y: auto;
-            display: flex;
-    
-    
-            @media (max-width: 992px) {
-                padding-top: 15px !important;
-            }
-    
-            overflow: scroll;
-    
-            &::-webkit-scrollbar {
-                display: none;
-            }
+
+        @media (max-width: 992px) {
+            padding-top: 15px !important;
+            margin-top: 51px !important;
+            min-height: calc(100vh - 51px);
         }
-    
+
+
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
     }
 
-
-
-
-    // .app-footer {
-    //     margin-top: auto !important;
-    // }
-
- 
-
-    // html,
-    // body {
-    //     scroll-behavior: auto !important;
-
-    // }
 }
+
+
+
+// @import "../assets/_partials/colors";
+
+// .main-class {
+//     background-color: $color-primary-2;
+//     color: $color-primary-6;
+
+//     .fixed-top {
+//         z-index: 1000 !important;
+//     }
+
+//     .wrapper {
+//         display: flex;
+//         flex-direction: column;
+//         min-height: 100vh;
+
+//         .content {
+//             padding: 15px 15px;
+//             padding-bottom: 0px !important;
+//             margin-top: 60px !important;
+//             flex: 1;
+//             overflow-y: auto;
+//             display: flex;
+    
+    
+//             @media (max-width: 992px) {
+//                 padding-top: 15px !important;
+//             }
+    
+//             overflow: scroll;
+    
+//             &::-webkit-scrollbar {
+//                 display: none;
+//             }
+//         }
+    
+//     }
+
+
+// }
