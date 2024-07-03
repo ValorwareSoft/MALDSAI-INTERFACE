@@ -1,0 +1,94 @@
+@import "../../../assets/_partials/colors";
+
+.footer {
+    background-color: $color-primary-5 !important;
+
+    .link {
+        text-decoration: none !important;
+        color: $color-primary-6 !important;
+        cursor: pointer;
+    }
+
+    .footer-sub-div-1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 10px 20px;
+
+        .division-1 {
+            width: 300px;
+
+            .logo-container {
+                font-family: "Nico Moji", sans-serif !important;
+                color: $color-primary-1;
+                font-size: 20px !important;
+                display: flex;
+                align-items: center;
+
+                img {
+                    @media (max-width: 992px) {
+                        width: 25px !important;
+                        height: 25px !important;
+                    }
+
+                    @media (min-width: 992px) {
+                        width: 30px !important;
+                        height: 30px !important;
+                    }
+                }
+
+                .title {
+                    padding-left: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 4px;
+
+                    span {
+                        height: 16px;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+
+            .sub-title {
+                font-size: 10px !important;
+                margin: 15px 0px !important;
+            }
+
+            .icons-section {
+                column-gap: 20px;
+                display: flex;
+
+            }
+        }
+
+        .division-2 {
+            display: flex;
+            column-gap: 40px;
+
+        }
+    }
+
+    .footer-sub-div-2 {
+        font-size: 12px !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+
+        @media screen and (max-width: 500px) {
+            flex-direction: column;
+            row-gap: 10px;
+        }
+
+        .circle {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: $color-primary-6 !important;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+    }
+}

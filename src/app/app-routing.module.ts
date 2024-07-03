@@ -6,6 +6,8 @@ import { AboutUsComponent } from './modules/about-us/about-us.component';
 import { ProjectsComponent } from './modules/projects/projects.component';
 import { ServicesComponent } from './modules/services/services.component';
 import { CareersComponent } from './modules/careers/careers.component';
+import { TermsAndConditionsComponent } from './common-components/terms-and-conditions/terms-and-conditions.component';
+import { PrivacyPolicyComponent } from './common-components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,7 +16,9 @@ const routes: Routes = [
   { path: 'projects', component: ProjectsComponent },
   { path: 'services', component: ServicesComponent },
   { path: 'careers', component: CareersComponent },
-  { path: 'contact-us', component: ContactUsComponent }
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent }
 ];
 const routerOptions: ExtraOptions = {
   scrollPositionRestoration: 'top',
