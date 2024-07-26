@@ -1,0 +1,251 @@
+@import "../../../assets/_partials/colors";
+
+.content {
+    padding: 0px !important;
+}
+
+.header-div {
+
+    .image-div {
+        img {
+            width: 100%;
+            height: 220px;
+        }
+
+        margin-bottom: 50px;
+    }
+
+    .heading {
+        margin-bottom: 10px;
+
+        span {
+            font-size: calc(22px + (30 - 24) * ((100vw - 320px) / (1000 - 320)));
+            font-weight: 600;
+            color: $color-primary-6;
+
+        }
+    }
+
+
+
+    .sub-heading {
+        color: $color-primary-4;
+        font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1000 - 320)));
+        line-height: 2;
+    }
+
+
+    .button-container {
+        margin-top: 30px;
+        display: flex;
+        column-gap: 30px;
+
+        button {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            row-gap: 15px;
+            position: relative;
+            border-radius: 5px;
+            padding: 8px 20px;
+            background: $color-primary-5;
+            border: 2px solid $color-primary-1;
+            font-size: calc(10px + (12 - 10) * ((100vw - 320px) / (1000 - 320)));
+            color: $color-primary-6;
+
+            &:hover {
+                transform: scale(1.02);
+                background: linear-gradient($color-primary-2, $color-primary-2) padding-box,
+                    $linear-gradient-secondary border-box;
+                border: 2px solid transparent;
+
+                a {
+
+                    color: $color-primary-6 !important;
+
+                }
+            }
+        }
+
+    }
+
+
+    a {
+        text-decoration: none;
+        color: $color-primary-1 !important;
+        font-size: calc(10px + 2 * (100vw - 320px) / 680) !important;
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+
+        i {
+            font-size: 25px;
+            height: 17px;
+            width: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+    }
+
+}
+
+
+.custom-div-3 {
+    margin-top: 150px;
+
+    .header-div {
+
+        text-align: center;
+
+
+        .heading {
+            margin-bottom: 5px;
+            width: 100%;
+
+            span {
+                font-size: calc(22px + (30 - 24) * ((100vw - 320px) / (1000 - 320)));
+                font-weight: 600;
+                color: $color-primary-6;
+            }
+        }
+
+
+
+        .sub-heading {
+            color: $color-primary-4;
+            font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1000 - 320)));
+        }
+
+
+
+
+    }
+
+    .image-div {
+
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+            width: 100% !important;
+        }
+    }
+
+    .cards-div {
+        margin-top: 70px;
+        line-height: 2;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        .image-div {
+            height: 180px;
+        }
+
+
+        .card {
+            background-color: $color-primary-5;
+            padding: clamp(15px, 4vw, 25px);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            .card-title {
+                font-size: calc(14px + (17 - 14) * ((100vw - 320px) / (1000 - 320)));
+                font-weight: 600;
+                color: $color-primary-6;
+                margin-bottom: 0px;
+            }
+
+            .card-content {
+                color: $color-primary-4;
+                font-size: calc(11px + (12 - 11) * ((100vw - 320px) / (1000 - 320)));
+            }
+
+            &:hover {
+                transform: scale(1.02);
+
+
+                // background: $color-primary-2;
+
+
+
+
+            }
+
+
+            .button-div {
+
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+
+                button {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    position: relative;
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                    background: $color-primary-5;
+                    border: none;
+                    font-size: 12px;
+                    color: $color-primary-1;
+
+                    &:hover {
+                        background-color: $color-primary-1;
+                        color: $color-primary-6;
+
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 1300px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 700px) {
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 1301px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+
+.faq-div {
+    margin-top: 150px;
+}
+
+
+.why-div {
+    margin-top: 150px;
+    text-align: center;
+
+    .card {
+        background-color: $color-primary-5;
+        padding: 30px !important;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        align-items: center;
+        color: $color-primary-6;
+    }
+
+    .heading {
+        margin-bottom: 30px;
+
+        span {
+            font-size: calc(22px + (30 - 24) * ((100vw - 320px) / (1000 - 320)));
+            font-weight: 600;
+            color: $color-primary-1;
+
+        }
+    }
+}

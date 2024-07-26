@@ -1,0 +1,125 @@
+@import "../../../assets/_partials/base";
+
+
+mat-card {
+    background-color: $color-primary-5;
+    padding: 20px !important;
+
+    mat-card-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+.card-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 50px;
+    margin: 60px 0px;
+
+    ul {
+        padding-left: 0rem !important;
+
+        li {
+            span {
+                font-weight: 600;
+                line-height: 2;
+            }
+        }
+    }
+
+    .mini-cards {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    .main-card {
+        mat-card {
+            height: 364px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        mat-card-content {
+            display: flex;
+            column-gap: 80px;
+
+            .heading {
+                font-size: 16px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
+                margin: 20px 0px;
+            }
+
+            .content {
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            .get-location {
+                font-size: 12px;
+                color: $color-primary-1;
+                display: flex;
+                align-items: center;
+                column-gap: 5px;
+
+                i {
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $color-primary-6;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.small-card-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 50px;
+    margin: 80px 0px;
+
+    mat-card-content {
+        display: flex;
+        column-gap: 60px;
+
+        div {
+            display: flex;
+            column-gap: 10px;
+        }
+
+        .icons {
+            column-gap: 20px;
+
+            i {
+                cursor: pointer;
+                color: $color-primary-6 !important;
+
+                &:hover {
+                    color: $color-primary-1 !important;
+                }
+            }
+        }
+    }
+}
+
+.contact-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-card {
+        padding: 20px 40px !important;
+    }
+}

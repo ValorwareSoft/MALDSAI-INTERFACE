@@ -8,6 +8,9 @@ import { ServicesComponent } from './modules/services/services.component';
 import { CareersComponent } from './modules/careers/careers.component';
 import { TermsAndConditionsComponent } from './common-components/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './common-components/privacy-policy/privacy-policy.component';
+import { FaqComponent } from './common-components/faq/faq.component';
+import { ServiceDetailsComponent } from './modules/service-details/service-details.component';
+import { ServiceSubDetailsComponent } from './modules/service-sub-details/service-sub-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,7 +21,10 @@ const routes: Routes = [
   { path: 'careers', component: CareersComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
-  { path: 'privacy-policy', component: PrivacyPolicyComponent }
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'services/:routeName', component: ServiceDetailsComponent },
+  { path: 'services/:routeName/:routeName', component: ServiceSubDetailsComponent },
 ];
 const routerOptions: ExtraOptions = {
   scrollPositionRestoration: 'top',

@@ -8,16 +8,15 @@ $color-primary-6: #FFFFFF;
 // Gradient Colors
 $color-gradient-1: #BF14D6;
 $color-gradient-2: #910FA3;
-$color-gradient-3: #640A70;
+$color-gradient-3: #640A70;
+$color-gradient-4 : #c95ad7;
 
 // Additional Colors
 $color-extra-1: #EAEE3E;
-$color-extra-2: #050FF0;
+$color-extra-2: #050FF0;
 
 // Linear Gradient
 $linear-gradient-primary: linear-gradient(272deg, $color-gradient-1 -23.32%, $color-gradient-2 41.04%, $color-gradient-3 90.08%);
 
 // Other Gradient 
-$linear-gradient-secondary: linear-gradient(90deg, $color-primary-1 100%, $color-extra-1 25%, $color-extra-2 50%, $color-primary-1 75%, $color-extra-1 100%);
-
-
+$linear-gradient-secondary: linear-gradient(97.59deg, #BF14D6 0%, #EAEE3E 49.02%, #050FF0 73.53%, #BF14D6 98.04%);

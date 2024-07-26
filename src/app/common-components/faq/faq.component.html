@@ -1,0 +1,66 @@
+<div class="header-div">
+    <div class="heading">
+        <span>Frequently Asked Questions (FAQ'S)</span>
+    </div>
+    <div class="sub-heading">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet possimus, amet quibusdam reprehenderit
+        dolorem aut dolorum tempore.
+    </div>
+</div>
+<div class="questions-div">
+    <div class="cards-div" *ngFor="let faq of faqs; let i = index">
+
+        <div class="card" >
+            <div class="card-header d-flex justify-content-between align-items-center "
+                [ngClass]="{'open-header': faq.open, 'closed-header': !faq.open}" (click)="toggleFaq(i)">
+
+                <h5 class="mb-0">{{i+1}}. {{ faq.question }}</h5>
+                <i [class]="faq.open ? 'bi bi-dash-lg' : 'bi bi-plus-lg'"></i>
+            </div>
+            <div class="card-content" *ngIf="faq.open">
+                <p class="m-3">{{ faq.answer }}</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="questions">
+    <span class="title">Still Have Questions?</span>
+    <span>We're here to help. If you have any questions about our open services or the working process, please
+        contact us at <a href="mailto:maheshc@maldsai.com">maheshc@maldsai.com</a> </span>
+</div>
+
+<div class="custom-div-6">
+    <div class="heading">
+        <span>Client Testimonial</span>
+    </div>
+
+    <div class="cards-div">
+        <div class="card" *ngFor="let card of review">
+            <div class="star-div">
+                <div *ngFor="let star of [].constructor(card.rating)">
+                    <i class="bi bi-star-fill"></i>
+                </div>
+            </div>
+            <div class="card-title">
+                <span>{{ card.title }}</span>
+            </div>
+            <div class="card-content">
+                <span>{{ card.content }}</span>
+            </div>
+            <div class="profile">
+                <div>
+                    <img [src]="card.image" alt="">
+                </div>
+                <div class="d-flex flex-column justify-content-center">
+                    <span class="name">{{ card.name }}</span>
+                    <span class="desigination">{{ card.desigination }}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

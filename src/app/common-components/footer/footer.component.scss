@@ -13,10 +13,12 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 10px 20px;
+        padding: 20px;
+        flex-wrap: wrap;
 
         .division-1 {
-            width: 300px;
+            max-width: 320px;
+            margin-bottom: 40px;
 
             .logo-container {
                 font-family: "Nico Moji", sans-serif !important;
@@ -24,36 +26,24 @@
                 font-size: 20px !important;
                 display: flex;
                 align-items: center;
+                margin-bottom: 20px !important;
 
                 img {
-                    @media (max-width: 992px) {
-                        width: 25px !important;
-                        height: 25px !important;
-                    }
 
-                    @media (min-width: 992px) {
-                        width: 30px !important;
-                        height: 30px !important;
-                    }
+                    width: 40px !important;
+                    height: 40px !important;
+
                 }
 
                 .title {
                     padding-left: 10px;
-                    display: flex;
-                    flex-direction: column;
-                    row-gap: 4px;
-
-                    span {
-                        height: 16px;
-                        display: flex;
-                        align-items: center;
-                    }
                 }
             }
 
             .sub-title {
-                font-size: 10px !important;
+                font-size: 12px !important;
                 margin: 15px 0px !important;
+                margin-bottom: 20px !important;
             }
 
             .icons-section {
@@ -65,8 +55,96 @@
 
         .division-2 {
             display: flex;
-            column-gap: 40px;
+            column-gap: 80px;
+            margin-bottom: 40px;
 
+            span {
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 15px !important;
+            }
+
+            ul {
+                margin-top: 1rem;
+                margin-bottom: 0px !important;
+                padding-left: 0px !important;
+                font-size: 14px;
+
+                .link {
+                    line-height: 2 !important;
+                }
+            }
+        }
+
+        .division-3 {
+            max-width: 390px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+
+            .heading {
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .sub-heading {
+                color: $color-primary-4;
+                font-size: 12px;
+                margin-bottom: 20px;
+            }
+
+            .form-div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .form-control {
+                    background-color: transparent;
+                    border: 1px solid $color-primary-4;
+                    color: $color-primary-6;
+                    font-size: 14px;
+                    width: 270px;
+                    height: 40px;
+
+                    &:focus {
+                        box-shadow: none;
+                    }
+
+                    &::placeholder {
+                        color: $color-primary-4;
+                    }
+                }
+
+                .btn {
+
+                    color: $color-primary-6;
+                    font-size: 12px;
+                    height: 40px;
+                    cursor: pointer;
+                    padding: 7px 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0px;
+                    border-radius: 7px;
+                    background: linear-gradient($color-primary-2, $color-primary-2) padding-box,
+                        $linear-gradient-secondary border-box;
+                    border: 2px solid transparent;
+                }
+
+
+
+
+
+
+
+
+            }
+
+            .text-danger {
+                font-size: 10px;
+                padding-top: 5px;
+            }
         }
     }
 

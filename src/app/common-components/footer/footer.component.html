@@ -6,8 +6,7 @@
                     <img src="../../../assets/images/logo.png" alt="">
                 </div>
                 <div class="title">
-                    <span>MalDsAi</span>
-                    <span>Technologies</span>
+                    <span>MalDsAi Technologies</span>
                 </div>
             </div>
             <div class="sub-title">
@@ -42,7 +41,7 @@
         <div class="division-2">
             <div>
                 <span>Navigate</span>
-                <ul>
+                <ul type="none">
                     <li class="link">
                         <a (click)="navigate('home')">Home</a>
                     </li>
@@ -58,13 +57,13 @@
                     <li class="link">
                         <a (click)="navigate('careers')">Careers</a>
                     </li>
-                    
+
                 </ul>
 
             </div>
             <div>
                 <span>Support</span>
-                <ul>
+                <ul type="none">
                     <li class="link">
                         <a (click)="navigate('faq')">FAQ</a>
                     </li>
@@ -74,9 +73,37 @@
                 </ul>
             </div>
         </div>
-        <div>
+        <div class="division-3">
+            <span class="heading">Be the first to know our latest updates</span>
+            <span class="sub-heading">Stay ahead of the curve with MalDsAi! Subscribe now and be the first to receive
+                our latest updates,
+                insights, and innovations in AI and data science.</span>
+            <div>
+                <form [formGroup]="subscriptionForm" (ngSubmit)="onSubmit()" class="form-div">
+                    <div class="form-group">
+                        <input type="email" id="email" class="form-control" formControlName="email"
+                            placeholder="Enter Your Email">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn" [disabled]="subscriptionForm.invalid">
 
+                            Subscribe
+
+                        </button>
+                    </div>
+                </form>
+                <div *ngIf="subscriptionForm.get('email')?.invalid && (subscriptionForm.get('email')?.dirty || subscriptionForm.get('email')?.touched)"
+                    class="text-danger">
+                    <div *ngIf="subscriptionForm.get('email')?.errors?.['required']">
+                        Email is required.
+                    </div>
+                    <div *ngIf="subscriptionForm.get('email')?.errors?.['email']">
+                        Enter a valid email.
+                    </div>
+                </div>
+            </div>
         </div>
+
 
     </div>
     <div class="footer-sub-div-2">
