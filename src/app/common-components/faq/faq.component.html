@@ -10,7 +10,7 @@
 <div class="questions-div">
     <div class="cards-div" *ngFor="let faq of faqs; let i = index">
 
-        <div class="card" >
+        <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center "
                 [ngClass]="{'open-header': faq.open, 'closed-header': !faq.open}" (click)="toggleFaq(i)">
 
@@ -27,11 +27,11 @@
 </div>
 
 
-<div class="questions">
+<!-- <div class="questions">
     <span class="title">Still Have Questions?</span>
     <span>We're here to help. If you have any questions about our open services or the working process, please
         contact us at <a href="mailto:maheshc@maldsai.com">maheshc@maldsai.com</a> </span>
-</div>
+</div> -->
 
 <div class="custom-div-6">
     <div class="heading">
