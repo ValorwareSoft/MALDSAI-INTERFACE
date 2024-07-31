@@ -157,6 +157,17 @@
 
         &:hover {
             transform: translateY(-6px);
+
+            h3
+            {
+                a {
+                color: $color-primary-1;
+            }
+        }
+
+            p {
+                color: $color-primary-6;
+            }
         }
 
         i {
@@ -196,6 +207,8 @@
             margin: 0;
             font-size: 15px;
             line-height: 1.8;
+            color: $color-primary-4;
+
         }
     }
 }
@@ -216,47 +229,54 @@
 
         h2 {
             font-size: 40px;
-            margin-bottom: 0px;
+            margin-bottom: 10px;
             color: $color-primary-6;
             font-weight: 700;
             line-height: 1.2;
         }
 
 
+        p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
 
     }
 
     .choose-card {
         position: relative;
-        padding: 30px 30px 30px 120px;
+        padding: 30px;
         background-color: $color-primary-5;
         box-shadow: 0 0 20px 3px rgba(0, 0, 0, .05);
         margin-bottom: 30px;
         transition: all .6s ease;
         border-radius: 0.5rem !important;
+        cursor: pointer;
 
-        span {
-            width: 70px;
-            height: 70px;
-            line-height: 70px;
-            text-align: center;
-            border: 1px dotted $color-primary-1;
-            font-size: 30px;
-            font-weight: 600;
-            color: $color-primary-1;
-            animation: border-transform 7s linear infinite alternate forwards;
-            transition: all .6s ease;
-            background-color: #fff;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 25px;
-            top: 35px;
-            border-radius: 50%;
-            box-shadow: 0 0 20px 3px rgba(0, 0, 0, .05);
-            display: inline-block;
-            position: absolute;
-            left: 30px;
-        }
+        // span {
+        //     width: 70px;
+        //     height: 70px;
+        //     line-height: 70px;
+        //     text-align: center;
+        //     border: 1px dotted $color-primary-1;
+        //     font-size: 30px;
+        //     font-weight: 600;
+        //     color: $color-primary-1;
+        //     animation: border-transform 7s linear infinite alternate forwards;
+        //     transition: all .6s ease;
+        //     background-color: #fff;
+        //     margin-left: auto;
+        //     margin-right: auto;
+        //     margin-bottom: 25px;
+
+        //     border-radius: 50%;
+        //     box-shadow: 0 0 20px 3px rgba(0, 0, 0, .05);
+        //     display: inline-block;
+        //     position: absolute;
+        //     left: 30px;
+        // }
 
         h3 {
             font-size: 22px;
@@ -271,13 +291,26 @@
             margin: 0;
             font-size: 15px;
             line-height: 1.8;
+            color: $color-primary-4;
+        }
+
+        &:hover {
+            border-left: 10px solid $color-primary-1;
+
+            h3 {
+                color: $color-primary-1;
+            }
+
+            p {
+                color: $color-primary-6;
+            }
         }
     }
 
 
     .choose-img {
         img {
-            width: 100%;
+            width: 80%;
         }
     }
 }
@@ -337,6 +370,17 @@
 
         &:hover {
             transform: translateY(-6px);
+
+            h3
+            {
+                a {
+                color: $color-primary-1;
+            }
+        }
+
+            p {
+                color: $color-primary-6;
+            }
         }
 
         .card-header {
@@ -369,7 +413,10 @@
             margin: 0;
             font-size: 15px;
             line-height: 1.8;
+            color: $color-primary-4;
         }
+
+
     }
 
 }
@@ -444,13 +491,24 @@
                 transition: all .6s ease;
 
 
+
             }
+
+
         }
 
         p {
             margin: 0;
             font-size: 15px;
             line-height: 1.8;
+        }
+
+        i {
+            font-size: 20px;
+
+            &:hover {
+                color: $color-primary-1;
+            }
         }
     }
 
@@ -473,7 +531,7 @@
     }
 }
 
-.faq-div{
+.faq-div {
     padding: 80px;
 }
 
@@ -537,5 +595,120 @@
             background-color: $color-primary-1;
         }
 
+    }
+}
+
+.custom-div-1 {
+    padding: 80px;
+
+    .service-text {
+        text-align: center;
+        max-width: 670px;
+        margin: auto;
+        margin-bottom: 60px;
+
+        span {
+            font-size: 14px;
+            color: $color-primary-1;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: $color-primary-6;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 15px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #e7e7e7;
+        }
+    }
+
+
+
+
+    .cards-div {
+
+        .card {
+            background-color: $color-primary-5;
+            // text-align: center;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            transition: all .6s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: translateY(-6px);
+            }
+
+
+            h3 {
+                font-size: 22px;
+                color: $color-primary-1;
+                font-weight: 700;
+                margin-bottom: 2rem !important;
+                line-height: 1.2;
+                margin-top: 0;
+            }
+
+            p {
+                margin: 0;
+                font-size: 15px;
+                line-height: 1.8;
+                color: #fff;
+            }
+
+
+        }
+    }
+}
+
+.connect-with-us {
+    padding: 80px;
+
+    .questions {
+
+
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+        row-gap: 15px;
+        position: relative;
+        border-radius: 10px;
+        background: linear-gradient($color-primary-2, $color-primary-2) padding-box,
+            $linear-gradient-secondary border-box;
+        border: 2px solid transparent;
+
+        .service-text {
+            text-align: center;
+            max-width: 670px;
+            margin: auto;
+
+
+
+            h3 {
+                font-size: 22px;
+                color: $color-primary-6;
+                font-weight: 700;
+                margin-bottom: .5rem;
+                line-height: 1.2;
+                margin-top: 0;
+            }
+
+            p {
+                font-size: 15px;
+                margin-bottom: 15px;
+                line-height: 1.8;
+                color: #e7e7e7;
+            }
+        }
     }
 }
