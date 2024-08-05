@@ -11,6 +11,7 @@ import { PrivacyPolicyComponent } from './common-components/privacy-policy/priva
 import { FaqComponent } from './common-components/faq/faq.component';
 import { ServiceDetailsComponent } from './modules/service-details/service-details.component';
 import { ServiceSubDetailsComponent } from './modules/service-sub-details/service-sub-details.component';
+import { PricingComponent } from './modules/pricing/pricing.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'services', component: ServicesComponent },
+  { path: 'pricing', component: PricingComponent },
   { path: 'careers', component: CareersComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
