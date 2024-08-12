@@ -7,7 +7,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CountryISO, NgxIntlTelInputModule, PhoneNumberFormat, SearchCountryField } from 'ngx-intl-tel-input';
 
 @Component({
   selector: 'app-schedule-demo-dialog',
@@ -18,6 +19,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
     MatSelectModule,
     MatButtonModule,
     MatDatepickerModule,
+    NgxIntlTelInputModule,
     MatNativeDateModule, ReactiveFormsModule],
   templateUrl: './schedule-demo-dialog.component.html',
   styleUrls: ['./schedule-demo-dialog.component.scss']
@@ -27,6 +29,17 @@ export class ScheduleDemoDialogComponent {
   scheduleDemoForm: FormGroup;
   categories = ['Healthcare', 'Supply Chain', 'Customer Service', 'Agriculture', /* other categories */];
   services = ['AI Solutions', 'Custom Software', 'Expert Consultation', /* other services */];
+  placeholder: string = 'Enter Phone Number';
+
+  separateDialCode = false;
+  SearchCountryField = SearchCountryField;
+  CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+  preferredCountries: CountryISO[] = [CountryISO.India, CountryISO.UnitedKingdom];
+
+  changePreferredCountries() {
+    this.preferredCountries = [CountryISO.India, CountryISO.Canada];
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -34,33 +47,84 @@ export class ScheduleDemoDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.scheduleDemoForm = this.fb.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required]],
-      categoryType: ['', [Validators.required]],
-      serviceType: ['', [Validators.required]],
-      notes: [''],
-      date: ['', [Validators.required]],
+      firstName: [
+        '',
+        [
+          Validators.required,
+          this.minLengthWithSpacesValidator(2),
+          Validators.maxLength(30),
+          Validators.pattern('^[a-zA-Z ]+$'),
+        ],
+      ],
+      lastName: [
+        '',
+        [
+          Validators.required,
+          this.minLengthWithSpacesValidator(2),
+          Validators.maxLength(30),
+          Validators.pattern('^[a-zA-Z ]+$'),
+        ],
+      ],
+      emailAddress: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$'
+          ),
+        ],
+      ],
+      phoneNumber: [
+        '',
+        [Validators.required],
+      ],
+      message: [
+        '',
+        [
+          Validators.required,
+          this.minLengthWithSpacesValidator(20),
+          Validators.maxLength(1000),
+        ],
+      ],
     });
   }
+
+
+  phoneNumberValidator() {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const value = control.value;
+      if (value && typeof value === 'object' && value.hasOwnProperty('number')) {
+        const isValid = value.isValid;
+        return isValid ? null : { invalidPhoneNumber: true };
+      }
+      return { invalidPhoneNumber: true };
+    };
+  }
+
+
+  minLengthWithSpacesValidator(minLength: number) {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const value: string = control.value || '';
+      const spaceCount: number = (value.match(/\s/g) || []).length;
+      const actualLength: number = value.length - spaceCount;
+      return actualLength < minLength ? { minlength: true } : null;
+    };
+  }
+
+
+
+  onSubmit(): void {
+
+  }
+
+
+
 
   onCancel(): void {
     this.dialogRef.close();
   }
 
-  onSubmit(): void {
-    if (this.scheduleDemoForm.valid) {
-      const formData = this.scheduleDemoForm.value;
 
-      // Send email
-
-      alert('Thank you! We will get back to you.');
-      this.dialogRef.close();
-      // Send confirmation email to the user
-      this.sendConfirmationEmail(formData);
-
-    }
-  }
 
   sendConfirmationEmail(formData: any) {
     const confirmationEmail = {

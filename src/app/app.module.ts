@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from "./common-components/footer/footer.component";
 import { NavbarComponent } from "./common-components/navbar/navbar.component";
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { NavbarComponent } from "./common-components/navbar/navbar.component";
         AppRoutingModule,
         BrowserAnimationsModule,
         FooterComponent,
-        NavbarComponent
+        NavbarComponent,
+        NgxIntlTelInputModule
     ]
 })
 export class AppModule { }

@@ -1,0 +1,65 @@
+.body-content {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 50px !important;
+    padding: 40px 30px;
+
+    @media screen and (max-width : 768px) {
+        padding: 30px 20px !important;
+        max-width: 400px !important;
+    }
+
+    @media screen and (min-width : 768px) {
+        padding: 40px 30px !important;
+        max-width: 700px !important;
+    }
+}
+
+.sub-heading {
+    span {
+        cursor: pointer;
+    }
+}
+
+.text-danger {
+    font-size: 10px !important;
+    margin-top: 4px;
+    color: red !important;
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.form-control-custom {
+    position: relative;
+  }
+  
+  .form-control-custom .custom .iti {
+    width: 100%;
+  }
+  
+  .form-control-custom .custom .iti__flag-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+  
+  .form-control-custom .custom .iti__selected-flag {
+    padding: 0 8px;
+  }
+  
+  .form-control-custom .custom .iti__country-list {
+    width: 100%;
+  }
+  
+  .iti__country-list {
+    z-index: 1000;
+  }
+  

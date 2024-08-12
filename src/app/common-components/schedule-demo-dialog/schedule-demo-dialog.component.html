@@ -1,48 +1,111 @@
-<h2 mat-dialog-title>Schedule a Demo</h2>
-<form [formGroup]="scheduleDemoForm" (ngSubmit)="onSubmit()">
-  <mat-form-field class="full-width">
-    <mat-label>Name</mat-label>
-    <input matInput formControlName="name" required>
-  </mat-form-field>
+<div class="main">
+    <div >
+      <p class="text-center main-heading m-0">Contact Us</p>
+      <p class="text-center main">
+        Have questions or inquiries? We're here to help! Whether you're looking for more information about our services,
+        need assistance with a project, or just want to say hello, feel free to reach out to us using the form below.
+      </p>
+    </div>
+    <div class="body-content ">
+      <form [formGroup]="scheduleDemoForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="mb-3 col-md-6">
+            <label for="firstName" class="form-label">First Name *</label>
+            <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name" />
+            <div
+              *ngIf="scheduleDemoForm.get('firstName')?.invalid && (scheduleDemoForm.get('firstName')?.dirty || scheduleDemoForm.get('firstName')?.touched)"
+              class="text-danger">
+              <div *ngIf="scheduleDemoForm.get('firstName')?.errors?.['required']">First name is required</div>
+              <div
+                *ngIf="scheduleDemoForm.get('firstName')?.errors?.['minlength'] && !scheduleDemoForm.get('firstName')?.errors?.['required']">
+                Minimum 2 characters required</div>
+              <div *ngIf="scheduleDemoForm.get('firstName')?.errors?.['maxlength']">Maximum 30 characters allowed</div>
+              <div
+                *ngIf="scheduleDemoForm.get('firstName')?.errors?.['pattern'] && !scheduleDemoForm.get('firstName')?.errors?.['required'] && !scheduleDemoForm.get('firstName')?.errors?.['minlength']">
+                Only alphabets and spaces allowed</div>
+            </div>
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="lastName" class="form-label">Last Name * </label>
+            <input type="text" class="form-control" formControlName="lastName" placeholder="Enter Last Name" />
+            <div
+              *ngIf="scheduleDemoForm.get('lastName')?.invalid && (scheduleDemoForm.get('lastName')?.dirty || scheduleDemoForm.get('lastName')?.touched)"
+              class="text-danger">
+              <div *ngIf="scheduleDemoForm.get('lastName')?.errors?.['required']">Last name is required</div>
+              <div
+                *ngIf="scheduleDemoForm.get('lastName')?.errors?.['minlength'] && !scheduleDemoForm.get('lastName')?.errors?.['required']">
+                Minimum 2 characters required</div>
+              <div *ngIf="scheduleDemoForm.get('lastName')?.errors?.['maxlength']">Maximum 30 characters allowed</div>
+              <div
+                *ngIf="scheduleDemoForm.get('lastName')?.errors?.['pattern'] && !scheduleDemoForm.get('lastName')?.errors?.['required'] && !scheduleDemoForm.get('lastName')?.errors?.['minlength']">
+                Only alphabets and spaces allowed</div>
+            </div>
+  
+  
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="emailAddress" class="form-label">Email Address *</label>
+            <input type="email" class="form-control" formControlName="emailAddress" placeholder="Enter Email Address" />
+            <div
+              *ngIf="scheduleDemoForm.get('emailAddress')?.invalid && (scheduleDemoForm.get('emailAddress')?.dirty || scheduleDemoForm.get('emailAddress')?.touched)"
+              class="text-danger">
+              <div *ngIf="scheduleDemoForm.get('emailAddress')?.errors?.['required']">Email is required</div>
+              <div *ngIf="scheduleDemoForm.get('emailAddress')?.errors?.['pattern']">Invalid email format</div>
+            </div>
+          </div>
 
-  <mat-form-field class="full-width">
-    <mat-label>Email</mat-label>
-    <input matInput formControlName="email" type="email" required>
-  </mat-form-field>
-
-  <mat-form-field class="full-width">
-    <mat-label>Phone Number</mat-label>
-    <input matInput formControlName="phone" required>
-  </mat-form-field>
-
-  <mat-form-field class="full-width">
-    <mat-label>Category Type</mat-label>
-    <mat-select formControlName="categoryType" required>
-      <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field class="full-width">
-    <mat-label>Service Type</mat-label>
-    <mat-select formControlName="serviceType" required>
-      <mat-option *ngFor="let service of services" [value]="service">{{ service }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field class="full-width">
-    <mat-label>Notes (Optional)</mat-label>
-    <textarea matInput formControlName="notes"></textarea>
-  </mat-form-field>
-
-  <mat-form-field class="full-width">
-    <mat-label>Pick a Date</mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="date" required>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
-  <div mat-dialog-actions>
-    <button mat-button (click)="onCancel()">Cancel</button>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!scheduleDemoForm.valid">Submit</button>
+          <div class="mb-3 col-md-6">
+            <label for="phoneNumber" class="form-label">Phone Number *</label>
+            <div class="form-control-custom">
+              <ngx-intl-tel-input
+                [cssClass]="'custom'"
+                [preferredCountries]="preferredCountries"
+                [enableAutoCountrySelect]="true"
+                [enablePlaceholder]="true"
+                [searchCountryFlag]="true"
+                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                [customPlaceholder]="placeholder"
+                [selectFirstCountry]="false"
+                [selectedCountryISO]="CountryISO.India"
+                [maxLength]="15"
+                [phoneValidation]="true"
+                [separateDialCode]="separateDialCode"
+                [numberFormat]="PhoneNumberFormat.National"
+                name="phoneNumber"
+                formControlName="phoneNumber"
+              ></ngx-intl-tel-input>
+            </div>
+            <div *ngIf="scheduleDemoForm.get('phoneNumber')?.touched">
+              <div *ngIf="scheduleDemoForm.get('phoneNumber')?.errors?.['required']" class="text-danger">
+                Phone number is required
+              </div>
+              <div *ngIf="!scheduleDemoForm.get('phoneNumber')?.errors?.['required'] && scheduleDemoForm.get('phoneNumber')?.invalid" class="text-danger">
+                Invalid phone number
+              </div>
+            </div>
+          </div>
+          
+  
+          <div class="mb-3">
+            <label for="message" class="form-label">Message *</label>
+            <textarea class="form-control" formControlName="message" rows="3"
+              placeholder="Enter Your Message Here..."></textarea>
+            <div
+              *ngIf="scheduleDemoForm.get('message')?.invalid && (scheduleDemoForm.get('message')?.dirty || scheduleDemoForm.get('message')?.touched)"
+              class="text-danger">
+              <div *ngIf="scheduleDemoForm.get('message')?.errors?.['required']">Message is required</div>
+              <div
+                *ngIf="scheduleDemoForm.get('message')?.errors?.['minlength'] && !scheduleDemoForm.get('message')?.errors?.['required']">
+                Minimum 20 characters required</div>
+              <div *ngIf="scheduleDemoForm.get('message')?.errors?.['maxlength']">Maximum 1000 characters allowed</div>
+            </div>
+          </div>
+  
+  
+          <div class="mt-3 d-flex justify-content-end ">
+            <button class="btn btn-primary" type="submit" [disabled]="scheduleDemoForm.invalid">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-</form>
