@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>Schedule a Demo</h2>
+<form [formGroup]="scheduleDemoForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" required>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email" required>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Phone Number</mat-label>
+    <input matInput formControlName="phone" required>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Category Type</mat-label>
+    <mat-select formControlName="categoryType" required>
+      <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Service Type</mat-label>
+    <mat-select formControlName="serviceType" required>
+      <mat-option *ngFor="let service of services" [value]="service">{{ service }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Notes (Optional)</mat-label>
+    <textarea matInput formControlName="notes"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Pick a Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!scheduleDemoForm.valid">Submit</button>
+  </div>
+</form>

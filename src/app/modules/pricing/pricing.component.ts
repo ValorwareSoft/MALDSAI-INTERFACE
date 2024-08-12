@@ -1,15 +1,17 @@
 import { Component, AfterViewInit, HostListener, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScheduleDemoDialogComponent } from 'src/app/common-components/schedule-demo-dialog/schedule-demo-dialog.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-pricing',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatDialogModule],
   templateUrl: './pricing.component.html',
   styleUrls: ['./pricing.component.scss']
 })
 export class PricingComponent implements AfterViewInit {
-  constructor(private renderer: Renderer2, private el: ElementRef) { }
+  constructor(private renderer: Renderer2, private el: ElementRef, private dialog: MatDialog) { }
 
   ngAfterViewInit() {
     this.adjustStarsHeight();
@@ -26,5 +28,12 @@ export class PricingComponent implements AfterViewInit {
     if (pricingDiv && starsContainer) {
       this.renderer.setStyle(starsContainer, 'height', `${pricingDiv.offsetHeight}px`);
     }
+  }
+
+  
+  openScheduleDemoDialog() {
+    this.dialog.open(ScheduleDemoDialogComponent, {
+     
+    });
   }
 }
