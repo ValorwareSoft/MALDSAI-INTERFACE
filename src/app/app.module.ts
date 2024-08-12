@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +21,8 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
         BrowserAnimationsModule,
         FooterComponent,
         NavbarComponent,
-        NgxIntlTelInputModule
+        NgxIntlTelInputModule,
+        MatIconModule
     ]
 })
 export class AppModule { }

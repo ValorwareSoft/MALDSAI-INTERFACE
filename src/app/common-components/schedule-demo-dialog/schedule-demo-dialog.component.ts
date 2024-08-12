@@ -7,7 +7,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CountryISO, NgxIntlTelInputModule, PhoneNumberFormat, SearchCountryField } from 'ngx-intl-tel-input';
 
 @Component({
@@ -20,6 +20,7 @@ import { CountryISO, NgxIntlTelInputModule, PhoneNumberFormat, SearchCountryFiel
     MatButtonModule,
     MatDatepickerModule,
     NgxIntlTelInputModule,
+    FormsModule,
     MatNativeDateModule, ReactiveFormsModule],
   templateUrl: './schedule-demo-dialog.component.html',
   styleUrls: ['./schedule-demo-dialog.component.scss']
