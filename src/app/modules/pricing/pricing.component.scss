@@ -1,0 +1,218 @@
+@import "../../../assets/_partials/colors";
+
+$starFieldWidth: 2560;
+$starFieldHeight: 2560;
+$starStartOffset: 600px;
+
+$starOneScrollDuration: 100s;
+$starTwoScrollDuration: 125s;
+$starThreeScrollDuration: 175s;
+$numStarOneStars: 1700;
+$numStarTwoStars: 700;
+$numStarThreeStars: 200;
+$numShootingStars: 30;
+$width: 100%;
+
+.container-special {
+    display: block;
+    width: 100%;
+    background: linear-gradient(to bottom, #2e0237 0%, #000000 95%);
+    overflow: hidden;
+    position: absolute;
+}
+
+@function create-stars($n) {
+    $stars: "#{random($starFieldWidth)}px #{random($starFieldHeight)}px #FFF";
+
+    @for $i from 2 through $n {
+        $stars: "#{$stars} , #{random($starFieldWidth)}px #{random($starFieldHeight)}px #FFF";
+    }
+
+    @return unquote($stars);
+}
+
+@mixin star-template($numStars, $starSize, $scrollSpeed) {
+    z-index: 10;
+    width: $starSize;
+    height: $starSize;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: create-stars($numStars);
+    animation: animStar $scrollSpeed linear infinite;
+
+    &:after {
+        content: " ";
+        top: -$starStartOffset;
+        width: $starSize;
+        height: $starSize;
+        border-radius: 50%;
+        position: absolute;
+        background-color: transparent;
+        box-shadow: create-stars($numStars);
+    }
+}
+
+@mixin shooting-star-template($numStars, $starSize, $speed) {
+    z-index: 10;
+    width: $starSize;
+    height: $starSize + 80px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0), #fff);
+    animation: animShootingStar $speed linear infinite;
+}
+
+.stars {
+    @include star-template($numStarOneStars, 1px, $starOneScrollDuration);
+}
+
+.stars1 {
+    @include star-template($numStarTwoStars, 2px, $starTwoScrollDuration);
+}
+
+.stars2 {
+    @include star-template($numStarThreeStars, 3px, $starThreeScrollDuration);
+}
+
+.shooting-stars {
+    @include shooting-star-template($numShootingStars, 5px, 20s);
+}
+
+.shooting-stars-2 {
+    @include shooting-star-template($numShootingStars, 5px, 30s);
+    bottom: 0;
+    left: 20%;
+}
+
+.shooting-stars-3 {
+    @include shooting-star-template($numShootingStars, 5px, 10s);
+    bottom: 0;
+    right: 50%;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-#{$starFieldHeight}px) translateX(-#{$starFieldWidth}px);
+    }
+}
+
+@keyframes animShootingStar {
+    from {
+        transform: translateY(0px) translateX(0px) rotate(-45deg);
+        opacity: 1;
+        height: 5px;
+    }
+
+    to {
+        transform: translateY(-#{$starFieldHeight}px) translateX(-#{$starFieldWidth}px) rotate(-45deg);
+        opacity: 1;
+        height: 1000px;
+    }
+}
+
+.service-div {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: clamp(20px,
+            calc(20px + (60 - 20) * ((100vw - 320px) / (1200 - 320))),
+            60px) !important;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        backdrop-filter: blur(1px);
+        z-index: -1;
+    }
+
+    @media (max-width: 1024px) {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .title-div {
+        font-family: "Dosis", sans-serif;
+        color: $color-primary-6;
+        flex: 1;
+
+        .title {
+            font-size: clamp(24px,
+                    calc(24px + (40 - 24) * ((100vw - 320px) / (1200 - 320))),
+                    40px);
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-shadow: 0px 0px 80px #000000;
+        }
+
+        .sub-title {
+            display: block;
+            margin-bottom: 30px;
+            text-shadow: 0px 0px 80px #000000;
+            line-height: 1.8;
+            font-weight: 500;
+            font-size: clamp(16px,
+                    calc(16px + (24 - 16) * ((100vw - 320px) / (1200 - 320))),
+                    24px);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+
+            @media (max-width: 1024px) {
+                gap: 15px;
+                justify-content: center;
+            }
+
+            button {
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                font-size: 1rem;
+                font-weight: 600;
+                border-radius: 5px;
+
+                &.btn-start {
+                    background-color: $color-primary-1;
+                    color: $color-primary-6;
+                }
+
+                &.btn-demo {
+                    background-color: $color-primary-6;
+                    color: $color-primary-2;
+                }
+            }
+        }
+    }
+
+    .image-div {
+        img {
+            width: clamp(250px,
+                    calc(320px + (400 - 250) * ((100vw - 320px) / (1024 - 320))),
+                    400px);
+            max-width: 100%;
+            height: auto;
+            padding: 20px;
+
+            @media (max-width: 1024px) {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
