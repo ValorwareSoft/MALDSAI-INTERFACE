@@ -10,13 +10,15 @@
         <h3>MalDsAi Technologies</h3>
         <p>Product Demo</p>
         <p><strong>Duration:</strong> 30 minutes</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sint architecto nemo maiores quae mollitia quidem asperiores placeat reiciendis, doloribus illum fuga velit laborum et, harum nisi voluptatum illo eos.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sint architecto nemo maiores quae mollitia
+          quidem asperiores placeat reiciendis, doloribus illum fuga velit laborum et, harum nisi voluptatum illo eos.
+        </p>
       </div>
     </div>
 
     <!-- Right Side: Calendar and Form -->
     <div class="right-container">
-      <form [formGroup]="demoForm" (ngSubmit)="scheduleEvent()">
+      <form [formGroup]="demoForm">
         <div *ngIf="step === 1">
           <h4>Select Date & Time</h4>
           <mat-form-field>
@@ -62,18 +64,19 @@
             <mat-error *ngIf="demoForm.get('email')?.hasError('email')">Enter a valid email</mat-error>
           </mat-form-field>
 
-          <mat-form-field>
-            <mat-label>Phone Number</mat-label>
+          <!-- Remove mat-form-field wrapper around ngx-intl-tel-input -->
+          <div>
             <ngx-intl-tel-input [cssClass]="'custom'" formControlName="phoneNumber"></ngx-intl-tel-input>
             <mat-error *ngIf="demoForm.get('phoneNumber')?.hasError('required')">Phone number is required</mat-error>
-          </mat-form-field>
+          </div>
 
           <mat-form-field>
             <mat-label>Service Category</mat-label>
             <mat-select formControlName="serviceCategory">
               <mat-option *ngFor="let category of serviceCategories" [value]="category">{{category}}</mat-option>
             </mat-select>
-            <mat-error *ngIf="demoForm.get('serviceCategory')?.hasError('required')">Service category is required</mat-error>
+            <mat-error *ngIf="demoForm.get('serviceCategory')?.hasError('required')">Service category is
+              required</mat-error>
           </mat-form-field>
 
           <mat-form-field>
@@ -88,9 +91,10 @@
             <mat-label>Message</mat-label>
             <textarea matInput formControlName="message"></textarea>
           </mat-form-field>
-
-          <button mat-raised-button color="primary" type="submit">Schedule Event</button>
+          <button mat-raised-button color="primary" (click)="previousStep()">Back</button>
+          <button mat-raised-button color="primary" (click)="scheduleEvent()">Schedule Event</button>
         </div>
+
       </form>
     </div>
   </div>

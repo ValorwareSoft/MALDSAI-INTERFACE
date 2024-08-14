@@ -9,6 +9,7 @@ import { FooterComponent } from "./common-components/footer/footer.component";
 import { NavbarComponent } from "./common-components/navbar/navbar.component";
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { MatDialogModule } from '@angular/material/dialog';
         FooterComponent,
         NavbarComponent,
         NgxIntlTelInputModule,
+        MatNativeDateModule,
         MatIconModule,
         MatDialogModule
     ]
