@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from "./common-components/footer/footer.component";
 import { NavbarComponent } from "./common-components/navbar/navbar.component";
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
         FooterComponent,
         NavbarComponent,
         NgxIntlTelInputModule,
-        MatIconModule
+        MatIconModule,
+        MatDialogModule
     ]
 })
 export class AppModule { }

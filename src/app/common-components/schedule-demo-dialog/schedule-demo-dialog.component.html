@@ -1,102 +1,97 @@
-<div class="main">
-    <div >
-      <p class="text-center main-heading m-0">Contact Us</p>
-      <p class="text-center main">
-        Have questions or inquiries? We're here to help! Whether you're looking for more information about our services,
-        need assistance with a project, or just want to say hello, feel free to reach out to us using the form below.
-      </p>
+<div class="dialog-container">
+  <div class="d-flex align-items-center justify-content-between">
+    <!-- Left Side: Company Info -->
+    <div class="left-container">
+      <div class="logo-container d-flex align-items-center">
+        <img src="../../../assets/images/logo.png" alt="MalDsAi Logo" width="60px">
+        <span>MalDsAi Technologies</span>
+      </div>
+      <div class="demo-info">
+        <h3>MalDsAi Technologies</h3>
+        <p>Product Demo</p>
+        <p><strong>Duration:</strong> 30 minutes</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sint architecto nemo maiores quae mollitia quidem asperiores placeat reiciendis, doloribus illum fuga velit laborum et, harum nisi voluptatum illo eos.</p>
+      </div>
     </div>
-    <div class="body-content ">
-      <form [formGroup]="customCodeForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-          <div class="mb-3 col-md-6">
-            <label for="firstName" class="form-label">First Name *</label>
-            <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name" />
-            <div
-              *ngIf="customCodeForm.get('firstName')?.invalid && (customCodeForm.get('firstName')?.dirty || customCodeForm.get('firstName')?.touched)"
-              class="text-danger">
-              <div *ngIf="customCodeForm.get('firstName')?.errors?.['required']">First name is required</div>
-              <div
-                *ngIf="customCodeForm.get('firstName')?.errors?.['minlength'] && !customCodeForm.get('firstName')?.errors?.['required']">
-                Minimum 2 characters required</div>
-              <div *ngIf="customCodeForm.get('firstName')?.errors?.['maxlength']">Maximum 30 characters allowed</div>
-              <div
-                *ngIf="customCodeForm.get('firstName')?.errors?.['pattern'] && !customCodeForm.get('firstName')?.errors?.['required'] && !customCodeForm.get('firstName')?.errors?.['minlength']">
-                Only alphabets and spaces allowed</div>
-            </div>
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="lastName" class="form-label">Last Name * </label>
-            <input type="text" class="form-control" formControlName="lastName" placeholder="Enter Last Name" />
-            <div
-              *ngIf="customCodeForm.get('lastName')?.invalid && (customCodeForm.get('lastName')?.dirty || customCodeForm.get('lastName')?.touched)"
-              class="text-danger">
-              <div *ngIf="customCodeForm.get('lastName')?.errors?.['required']">Last name is required</div>
-              <div
-                *ngIf="customCodeForm.get('lastName')?.errors?.['minlength'] && !customCodeForm.get('lastName')?.errors?.['required']">
-                Minimum 2 characters required</div>
-              <div *ngIf="customCodeForm.get('lastName')?.errors?.['maxlength']">Maximum 30 characters allowed</div>
-              <div
-                *ngIf="customCodeForm.get('lastName')?.errors?.['pattern'] && !customCodeForm.get('lastName')?.errors?.['required'] && !customCodeForm.get('lastName')?.errors?.['minlength']">
-                Only alphabets and spaces allowed</div>
-            </div>
-  
-  
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="emailAddress" class="form-label">Email Address *</label>
-            <input type="email" class="form-control" formControlName="emailAddress" placeholder="Enter Email Address" />
-            <div
-              *ngIf="customCodeForm.get('emailAddress')?.invalid && (customCodeForm.get('emailAddress')?.dirty || customCodeForm.get('emailAddress')?.touched)"
-              class="text-danger">
-              <div *ngIf="customCodeForm.get('emailAddress')?.errors?.['required']">Email is required</div>
-              <div *ngIf="customCodeForm.get('emailAddress')?.errors?.['pattern']">Invalid email format</div>
-            </div>
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="phoneNumber" class="form-label">Phone Number *</label>
-            <div class="form-control-custom">
-              <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
-                [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
-                [searchCountryField]="[
-                    SearchCountryField.Iso2,
-                    SearchCountryField.Name
-                  ]" [customPlaceholder]="placeholder" [selectFirstCountry]="false"
-                [selectedCountryISO]="CountryISO.India" [maxLength]="15" [phoneValidation]="true"
-                [separateDialCode]="separateDialCode" [numberFormat]="PhoneNumberFormat.National" name="phoneNumber"
-                formControlName="phoneNumber">
-              </ngx-intl-tel-input>
-            </div>
-            <div *ngIf="customCodeForm.get('phoneNumber')?.touched">
-              <div *ngIf="customCodeForm.get('phoneNumber')?.errors?.['required']" class="text-danger">Phone number is
-                required</div>
-              <div
-                *ngIf="!customCodeForm.get('phoneNumber')?.errors?.['required'] && customCodeForm.get('phoneNumber')?.invalid "
-                class="text-danger">Invalid phone number</div>
-            </div>
-  
-          </div>
-  
-          <div class="mb-3">
-            <label for="message" class="form-label">Message *</label>
-            <textarea class="form-control" formControlName="message" rows="3"
-              placeholder="Enter Your Message Here..."></textarea>
-            <div
-              *ngIf="customCodeForm.get('message')?.invalid && (customCodeForm.get('message')?.dirty || customCodeForm.get('message')?.touched)"
-              class="text-danger">
-              <div *ngIf="customCodeForm.get('message')?.errors?.['required']">Message is required</div>
-              <div
-                *ngIf="customCodeForm.get('message')?.errors?.['minlength'] && !customCodeForm.get('message')?.errors?.['required']">
-                Minimum 20 characters required</div>
-              <div *ngIf="customCodeForm.get('message')?.errors?.['maxlength']">Maximum 1000 characters allowed</div>
-            </div>
-          </div>
-  
-  
-          <div class="mt-3 d-flex justify-content-end ">
-            <button class="btn btn-primary" type="submit" [disabled]="customCodeForm.invalid">Send</button>
-          </div>
+
+    <!-- Right Side: Calendar and Form -->
+    <div class="right-container">
+      <form [formGroup]="demoForm" (ngSubmit)="scheduleEvent()">
+        <div *ngIf="step === 1">
+          <h4>Select Date & Time</h4>
+          <mat-form-field>
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" [min]="minDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="demoForm.get('date')?.hasError('required')">Date is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Time Zone</mat-label>
+            <mat-select formControlName="timeZone">
+              <mat-option *ngFor="let tz of timeZones" [value]="tz">{{tz}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="demoForm.get('timeZone')?.hasError('required')">Time zone is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Time</mat-label>
+            <mat-select formControlName="time">
+              <mat-option *ngFor="let time of timeSlots" [value]="time">{{time}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="demoForm.get('time')?.hasError('required')">Time is required</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+        </div>
+
+        <div *ngIf="step === 2">
+          <h4>Enter Your Details</h4>
+
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+            <mat-error *ngIf="demoForm.get('name')?.hasError('required')">Name is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Email Address</mat-label>
+            <input matInput type="email" formControlName="email">
+            <mat-error *ngIf="demoForm.get('email')?.hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="demoForm.get('email')?.hasError('email')">Enter a valid email</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Phone Number</mat-label>
+            <ngx-intl-tel-input [cssClass]="'custom'" formControlName="phoneNumber"></ngx-intl-tel-input>
+            <mat-error *ngIf="demoForm.get('phoneNumber')?.hasError('required')">Phone number is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Service Category</mat-label>
+            <mat-select formControlName="serviceCategory">
+              <mat-option *ngFor="let category of serviceCategories" [value]="category">{{category}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="demoForm.get('serviceCategory')?.hasError('required')">Service category is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Service</mat-label>
+            <mat-select formControlName="service">
+              <mat-option *ngFor="let service of services" [value]="service">{{service}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="demoForm.get('service')?.hasError('required')">Service is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Message</mat-label>
+            <textarea matInput formControlName="message"></textarea>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit">Schedule Event</button>
         </div>
       </form>
     </div>
   </div>
+</div>

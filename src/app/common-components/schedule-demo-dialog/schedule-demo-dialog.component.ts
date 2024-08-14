@@ -1,119 +1,74 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  ReactiveFormsModule,
-  AbstractControl,
-} from '@angular/forms';
-import { SearchCountryField, CountryISO, PhoneNumberFormat, NgxIntlTelInputModule } from 'ngx-intl-tel-input';
-import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
+import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { MatNativeDateModule } from "@angular/material/core";
+import { NgxIntlTelInputModule } from "ngx-intl-tel-input";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatButtonModule } from "@angular/material/button";
+import { MatSelectModule } from '@angular/material/select';
+
 
 @Component({
   selector: 'app-schedule-demo-dialog',
   standalone: true,
   templateUrl: './schedule-demo-dialog.component.html',
   styleUrls: ['./schedule-demo-dialog.component.scss'],
-  imports: [CommonModule, ReactiveFormsModule, NgxIntlTelInputModule, RouterModule]
+  imports: [
+    CommonModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatNativeDateModule,
+    NgxIntlTelInputModule,
+    ReactiveFormsModule
+  ]
 
 })
 export class ScheduleDemoDialogComponent {
+  step = 1;
+  minDate = new Date();
+  selectedTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-  showDetails: boolean = false;
-  customCodeForm: FormGroup;
-  placeholder: string = 'Enter Phone Number';
+  timeZones = [
+    'UTC', 'America/New_York', 'Europe/London', 'Asia/Kolkata',
+  ];
 
-  separateDialCode = false;
-  SearchCountryField = SearchCountryField;
-  CountryISO = CountryISO;
-  PhoneNumberFormat = PhoneNumberFormat;
-  preferredCountries: CountryISO[] = [CountryISO.India, CountryISO.UnitedKingdom];
+  timeSlots = [
+    '12:00 AM', '12:30 AM', '1:00 AM', '1:30 AM', '2:00 AM', '2:30 AM',
+  ];
 
-  changePreferredCountries() {
-    this.preferredCountries = [CountryISO.India, CountryISO.Canada];
-  }
+  demoForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
-    this.customCodeForm = this.formBuilder.group({
-      firstName: [
-        '',
-        [
-          Validators.required,
-          this.minLengthWithSpacesValidator(2),
-          Validators.maxLength(30),
-          Validators.pattern('^[a-zA-Z ]+$'),
-        ],
-      ],
-      lastName: [
-        '',
-        [
-          Validators.required,
-          this.minLengthWithSpacesValidator(2),
-          Validators.maxLength(30),
-          Validators.pattern('^[a-zA-Z ]+$'),
-        ],
-      ],
-      emailAddress: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            '^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$'
-          ),
-        ],
-      ],
-      phoneNumber: [
-        '',
-        [Validators.required],
-      ],
-      message: [
-        '',
-        [
-          Validators.required,
-          this.minLengthWithSpacesValidator(20),
-          Validators.maxLength(1000),
-        ],
-      ],
+  serviceCategories = ['Category 1', 'Category 2', 'Category 3'];
+  services = ['Service 1', 'Service 2', 'Service 3'];
+
+  constructor(private fb: FormBuilder) {
+    this.demoForm = this.fb.group({
+      date: [null, Validators.required],
+      time: [null, Validators.required],
+      timeZone: [this.selectedTimeZone, Validators.required],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: [null, Validators.required],
+      serviceCategory: ['', Validators.required],
+      service: ['', Validators.required],
+      message: ['']
     });
   }
 
-  phoneNumberValidator() {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-      const value = control.value;
-      if (value && typeof value === 'object' && value.hasOwnProperty('number')) {
-        const isValid = value.isValid;
-        return isValid ? null : { invalidPhoneNumber: true };
-      }
-      return { invalidPhoneNumber: true };
-    };
+  nextStep() {
+    this.step = 2;
   }
 
-
-  minLengthWithSpacesValidator(minLength: number) {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-      const value: string = control.value || '';
-      const spaceCount: number = (value.match(/\s/g) || []).length;
-      const actualLength: number = value.length - spaceCount;
-      return actualLength < minLength ? { minlength: true } : null;
-    };
-  }
-
-
-
-  onSubmit(): void {
-    if (this.customCodeForm.valid) {
-      this.router.navigate(['/popup/#', 'success']);
+  scheduleEvent() {
+    if (this.demoForm.valid) {
+      console.log(this.demoForm.value);
     } else {
-      this.customCodeForm.markAllAsTouched();
-      this.router.navigate(['/popup/#', 'failed']);
+      this.demoForm.markAllAsTouched();
     }
   }
-
-
-  toggleDetails(): void {
-    this.showDetails = !this.showDetails;
-  }
-
-
 }
