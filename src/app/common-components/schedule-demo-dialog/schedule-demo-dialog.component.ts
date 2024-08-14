@@ -1,35 +1,27 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CountryISO, NgxIntlTelInputModule, PhoneNumberFormat, SearchCountryField } from 'ngx-intl-tel-input';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+  AbstractControl,
+} from '@angular/forms';
+import { SearchCountryField, CountryISO, PhoneNumberFormat, NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-schedule-demo-dialog',
   standalone: true,
-  imports: [CommonModule, MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatDatepickerModule,
-    NgxIntlTelInputModule,
-    FormsModule,
-    MatNativeDateModule, ReactiveFormsModule],
   templateUrl: './schedule-demo-dialog.component.html',
-  styleUrls: ['./schedule-demo-dialog.component.scss']
+  styleUrls: ['./schedule-demo-dialog.component.scss'],
+  imports: [CommonModule, ReactiveFormsModule, NgxIntlTelInputModule, RouterModule]
+
 })
 export class ScheduleDemoDialogComponent {
 
-  scheduleDemoForm: FormGroup;
-  categories = ['Healthcare', 'Supply Chain', 'Customer Service', 'Agriculture', /* other categories */];
-  services = ['AI Solutions', 'Custom Software', 'Expert Consultation', /* other services */];
+  showDetails: boolean = false;
+  customCodeForm: FormGroup;
   placeholder: string = 'Enter Phone Number';
 
   separateDialCode = false;
@@ -42,12 +34,8 @@ export class ScheduleDemoDialogComponent {
     this.preferredCountries = [CountryISO.India, CountryISO.Canada];
   }
 
-  constructor(
-    private fb: FormBuilder,
-    private dialogRef: MatDialogRef<ScheduleDemoDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    this.scheduleDemoForm = this.fb.group({
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    this.customCodeForm = this.formBuilder.group({
       firstName: [
         '',
         [
@@ -90,7 +78,6 @@ export class ScheduleDemoDialogComponent {
     });
   }
 
-
   phoneNumberValidator() {
     return (control: AbstractControl): { [key: string]: any } | null => {
       const value = control.value;
@@ -115,36 +102,18 @@ export class ScheduleDemoDialogComponent {
 
 
   onSubmit(): void {
-
+    if (this.customCodeForm.valid) {
+      this.router.navigate(['/popup/#', 'success']);
+    } else {
+      this.customCodeForm.markAllAsTouched();
+      this.router.navigate(['/popup/#', 'failed']);
+    }
   }
 
 
-
-
-  onCancel(): void {
-    this.dialogRef.close();
+  toggleDetails(): void {
+    this.showDetails = !this.showDetails;
   }
 
-
-
-  sendConfirmationEmail(formData: any) {
-    const confirmationEmail = {
-      to: formData.email,
-      subject: 'Your Demo Schedule Details',
-      body: `Thank you for scheduling a demo with MalDsAI Technologies. 
-            Here are your details:
-            Name: ${formData.name}
-            Email: ${formData.email}
-            Phone: ${formData.phone}
-            Category Type: ${formData.categoryType}
-            Service Type: ${formData.serviceType}
-            Date: ${formData.date}
-            Notes: ${formData.notes || 'None'}
-            If there are any updates to the date and time, we will notify you. 
-            For support, please contact support@maldsai.com.`
-    };
-
-
-  }
 
 }
