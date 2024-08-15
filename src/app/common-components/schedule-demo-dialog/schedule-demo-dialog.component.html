@@ -1,101 +1,163 @@
 <div class="dialog-container">
-  <div class="d-flex align-items-center justify-content-between">
-    <!-- Left Side: Company Info -->
-    <div class="left-container">
-      <div class="logo-container d-flex align-items-center">
-        <img src="../../../assets/images/logo.png" alt="MalDsAi Logo" width="60px">
-        <span>MalDsAi Technologies</span>
-      </div>
-      <div class="demo-info">
-        <h3>MalDsAi Technologies</h3>
-        <p>Product Demo</p>
-        <p><strong>Duration:</strong> 30 minutes</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sint architecto nemo maiores quae mollitia
-          quidem asperiores placeat reiciendis, doloribus illum fuga velit laborum et, harum nisi voluptatum illo eos.
-        </p>
-      </div>
+
+  <div class="close-icon">
+    <i class="bi bi-x-lg" (click)="close()"></i>
+  </div>
+
+  <div class="left-container">
+    <div class="logo-container">
+      <img src="../../../assets/images/logo.png" alt="MalDsAi Logo">
+      <span>MalDsAi Technologies</span>
     </div>
-
-    <!-- Right Side: Calendar and Form -->
-    <div class="right-container">
-      <form [formGroup]="demoForm">
-        <div *ngIf="step === 1">
-          <h4>Select Date & Time</h4>
-          <mat-form-field>
-            <mat-label>Date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="date" [min]="minDate">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error *ngIf="demoForm.get('date')?.hasError('required')">Date is required</mat-error>
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Time Zone</mat-label>
-            <mat-select formControlName="timeZone">
-              <mat-option *ngFor="let tz of timeZones" [value]="tz">{{tz}}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="demoForm.get('timeZone')?.hasError('required')">Time zone is required</mat-error>
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Time</mat-label>
-            <mat-select formControlName="time">
-              <mat-option *ngFor="let time of timeSlots" [value]="time">{{time}}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="demoForm.get('time')?.hasError('required')">Time is required</mat-error>
-          </mat-form-field>
-
-          <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
-        </div>
-
-        <div *ngIf="step === 2">
-          <h4>Enter Your Details</h4>
-
-          <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name">
-            <mat-error *ngIf="demoForm.get('name')?.hasError('required')">Name is required</mat-error>
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Email Address</mat-label>
-            <input matInput type="email" formControlName="email">
-            <mat-error *ngIf="demoForm.get('email')?.hasError('required')">Email is required</mat-error>
-            <mat-error *ngIf="demoForm.get('email')?.hasError('email')">Enter a valid email</mat-error>
-          </mat-form-field>
-
-          <!-- Remove mat-form-field wrapper around ngx-intl-tel-input -->
-          <div>
-            <ngx-intl-tel-input [cssClass]="'custom'" formControlName="phoneNumber"></ngx-intl-tel-input>
-            <mat-error *ngIf="demoForm.get('phoneNumber')?.hasError('required')">Phone number is required</mat-error>
-          </div>
-
-          <mat-form-field>
-            <mat-label>Service Category</mat-label>
-            <mat-select formControlName="serviceCategory">
-              <mat-option *ngFor="let category of serviceCategories" [value]="category">{{category}}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="demoForm.get('serviceCategory')?.hasError('required')">Service category is
-              required</mat-error>
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Service</mat-label>
-            <mat-select formControlName="service">
-              <mat-option *ngFor="let service of services" [value]="service">{{service}}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="demoForm.get('service')?.hasError('required')">Service is required</mat-error>
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Message</mat-label>
-            <textarea matInput formControlName="message"></textarea>
-          </mat-form-field>
-          <button mat-raised-button color="primary" (click)="previousStep()">Back</button>
-          <button mat-raised-button color="primary" (click)="scheduleEvent()">Schedule Event</button>
-        </div>
-
-      </form>
+    <div class="demo-info">
+      <p class="heading">Product Demo</p>
+      <p><i class="bi bi-clock me-2"></i> 30 min</p>
+      <p>Schedule a meeting. We will show you how our platform works, available pricings and why you should use us!
+      </p>
+    </div>
+    <div class="cookie-info">
+      <p><i class="bi bi-info-circle-fill me-2"></i> We collect information solely for enhancing your experience on our
+        website. Rest assured, your data is kept secure and will not be shared with third parties.</p>
     </div>
   </div>
+
+  <div class="right-container">
+    <h4 *ngIf="step === 2">Select Date & Time</h4>
+    <h4 *ngIf="step === 1">Enter Your Details</h4>
+
+    <form [formGroup]="demoForm">
+
+
+      <div *ngIf="step === 1">
+
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input formControlName="name" class="form-control" placeholder="Enter Your Name">
+          <div class="errors" *ngIf="getErrorMessage('name')">
+            {{getErrorMessage("name")}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="compnayName">Company Name *</label>
+          <input formControlName="compnayName" class="form-control" placeholder="Enter Your Compnay Name">
+          <div class="errors" *ngIf="getErrorMessage('compnayName')">
+            {{getErrorMessage("compnayName")}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input formControlName="email" class="form-control" placeholder="Enter Your Email Address">
+          <div class="errors" *ngIf="getErrorMessage('email')">
+            {{getErrorMessage("email")}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number *</label>
+          <div class="form-control-custom">
+            <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+              [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+              [searchCountryField]="[
+                  SearchCountryField.Iso2,
+                  SearchCountryField.Name
+                ]" [customPlaceholder]="placeholder" [selectFirstCountry]="false"
+              [selectedCountryISO]="CountryISO.India" [maxLength]="15" [phoneValidation]="true"
+              [separateDialCode]="separateDialCode" [numberFormat]="PhoneNumberFormat.National" name="phoneNumber"
+              formControlName="phoneNumber">
+            </ngx-intl-tel-input>
+          </div>
+          <div class="errors" *ngIf="getErrorMessage('phoneNumber')">
+            {{getErrorMessage("phoneNumber")}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="serviceCategory">Service Category</label>
+          <mat-select multiple formControlName="serviceCategory" class="form-control"
+            placeholder="Select Service Category">
+            <mat-option *ngFor="let category of serviceCategories" [value]="category">{{category}}</mat-option>
+          </mat-select>
+          <div class="errors" *ngIf="getErrorMessage('serviceCategory')">
+            {{getErrorMessage("serviceCategory")}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service</label>
+          <mat-select multiple formControlName="service" class="form-control" placeholder="Select Service">
+            <mat-option *ngFor="let service of services" [value]="service">{{service}}</mat-option>
+          </mat-select>
+          <div class="errors" *ngIf="getErrorMessage('service')">
+            {{getErrorMessage("service")}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Describe Requirement</label>
+          <textarea matInput formControlName="message" class="form-control"
+            placeholder="Describe Your Requirement..."></textarea>
+          <div class="errors" *ngIf="getErrorMessage('message')">
+            {{getErrorMessage("message")}}
+          </div>
+        </div>
+
+        <div class="button-container justify-content-end">
+          <button class="btn-demo" (click)="nextStep()">Next</button>
+        </div>
+
+
+
+      </div>
+
+      <div *ngIf="step === 2">
+
+        <div class="form-group">
+          <label for="date">Select Date </label>
+          <input matInput [matDatepicker]="picker" formControlName="date" [min]="minDate" readonly="true"
+            class="form-control" placeholder="Select Date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <div class="errors" *ngIf="getErrorMessage('date')">
+            {{getErrorMessage("date")}}
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="timeZone">Time Zone</label>
+          <mat-select formControlName="timeZone" class="form-control"
+            placeholder="Select Time Zone">
+            <mat-option class="hide-check-box" *ngFor="let tz of timeZones" [value]="tz">{{tz}}</mat-option>
+          </mat-select>
+          <div class="errors" *ngIf="getErrorMessage('timeZone')">
+            {{getErrorMessage("timeZone")}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="time">Time</label>
+          <mat-select formControlName="time" class="form-control"
+            placeholder="Select Time">
+            <mat-option class="hide-check-box" *ngFor="let time of timeSlots" [value]="time">{{time}}</mat-option>
+          </mat-select>
+          <div class="errors" *ngIf="getErrorMessage('time')">
+            {{getErrorMessage("time")}}
+          </div>
+        </div>
+
+
+
+
+
+        <div class="button-container">
+          <button class="btn-demo" (click)="previousStep()">Back</button>
+          <button class="btn-start" (click)="scheduleEvent()">Schedule Demo</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
 </div>

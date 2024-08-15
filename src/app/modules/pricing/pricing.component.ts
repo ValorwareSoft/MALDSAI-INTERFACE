@@ -1,7 +1,8 @@
 import { Component, AfterViewInit, HostListener, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScheduleDemoDialogComponent } from 'src/app/common-components/schedule-demo-dialog/schedule-demo-dialog.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
+import { DialogConfig } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-pricing',
@@ -32,8 +33,9 @@ export class PricingComponent implements AfterViewInit {
 
   
   openScheduleDemoDialog() {
-    this.dialog.open(ScheduleDemoDialogComponent, {
-     
-    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.disableClose = true;
+    this.dialog.open(ScheduleDemoDialogComponent, dialogConfig);
   }
 }
