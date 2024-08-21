@@ -1,0 +1,117 @@
+<div class="footer">
+    <div class="footer-sub-div-1">
+        <div class="division-1">
+            <div class="logo-container">
+                <div>
+                    <img src="../../../assets/images/logo.png" alt="">
+                </div>
+                <div class="title">
+                    <span>MalDsAi Technologies</span>
+                </div>
+            </div>
+            <div class="sub-title">
+                Transforming data into strategic insights with advanced analytics, machine learning, and AI solutions.
+                Partner with MalDsAi for innovation and success.
+            </div>
+            <div class="icons-section">
+                <a class="link" href=" https://www.instagram.com/maldsailaboratory?ig_shid=MXhvdnhucXl0OGNyMA%3D%3D"
+                    target="_blank">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a class="link" href=" https://www.facebook.com/profile.php?id=61558940142247&mibextid=ZbWKwL"
+                    target="_blank">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a class="link" href="https://x.com/maldsai" target="_blank">
+                    <i class="bi bi-twitter-x"></i>
+                </a>
+                <a class="link" href="https://www.linkedin.com/company/maldsai-laboratory/" target="_blank">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a class="link" href="https://wa.me/919148522025" target="_blank">
+                    <i class="bi bi-whatsapp"></i>
+                </a>
+                <a class="link" href=" https://www.youtube.com/@maldsai" target="_blank">
+                    <i class="bi bi-youtube"></i>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="division-2">
+            <div>
+                <span>Navigate</span>
+                <ul type="none">
+                    <li class="link">
+                        <a (click)="navigate('home')">Home</a>
+                    </li>
+                    <li class="link">
+                        <a (click)="navigate('about-us')">About Us</a>
+                    </li>
+                    <li class="link">
+                        <a (click)="navigate('projects')">Projects</a>
+                    </li>
+                    <li class="link">
+                        <a (click)="navigate('services')">Services</a>
+                    </li>
+                    <li class="link">
+                        <a (click)="navigate('careers')">Careers</a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <div>
+                <span>Support</span>
+                <ul type="none">
+                    <li class="link">
+                        <a (click)="navigate('faq')">FAQ</a>
+                    </li>
+                    <li class="link">
+                        <a (click)="navigate('contact-us')">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="division-3">
+            <span class="heading">Be the first to know our latest updates</span>
+            <span class="sub-heading">Stay ahead of the curve with MalDsAi! Subscribe now and be the first to receive
+                our latest updates,
+                insights, and innovations in AI and data science.</span>
+            <div>
+                <form [formGroup]="subscriptionForm" (ngSubmit)="onSubmit()" class="form-div">
+                    <div class="form-group">
+                        <input type="email" id="email" class="form-control" formControlName="email"
+                            placeholder="Enter Your Email">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn" [disabled]="subscriptionForm.invalid">
+
+                            Subscribe
+
+                        </button>
+                    </div>
+                </form>
+                <div *ngIf="subscriptionForm.get('email')?.invalid && (subscriptionForm.get('email')?.dirty || subscriptionForm.get('email')?.touched)"
+                    class="text-danger">
+                    <div *ngIf="subscriptionForm.get('email')?.errors?.['required']">
+                        Email is required.
+                    </div>
+                    <div *ngIf="subscriptionForm.get('email')?.errors?.['email']">
+                        Enter a valid email.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="footer-sub-div-2">
+        <span>© MalDsAi 2024 All Rights Reserved</span>
+        <span>
+            <a class="link" (click)="navigate('terms-and-conditions')">Terms & Conditions </a>
+            <span class="circle"></span>
+            <a class="link" (click)="navigate('privacy-policy')">Privacy Policy </a>
+        </span>
+    </div>
+</div>

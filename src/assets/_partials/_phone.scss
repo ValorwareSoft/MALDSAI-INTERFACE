@@ -1,0 +1,126 @@
+@import "./colors";
+
+.form-control-custom {
+    border-color: $color-primary-7 !important;
+    background-color: transparent !important;
+    color: $color-primary-7;
+    border: 1px solid $color-primary-7 !important;
+    border-radius: 0.375rem !important;
+    height: 50px !important;
+    flex-grow: 1 !important;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    padding: .375rem .75rem !important;
+    font-size: 1rem !important;
+    font-weight: 400;
+    line-height: 1.5;
+
+}
+
+::ng-deep {
+    input[type="tel"] {
+        background-color: transparent !important;
+        border-color: transparent !important;
+        color: $color-primary-7 !important;
+        border: none !important;
+        font-size: 1rem !important;
+        font-weight: 400;
+        padding-right: 0px !important;
+        letter-spacing: 1px !important;
+        min-width: 250px;
+    }
+
+    input[type="tel"]::placeholder {
+        color: $color-primary-4 !important;
+        font-size: 14px !important;
+    }
+
+    input[type="tel"]:focus-visible {
+        outline: -webkit-focus-ring-color auto 0px !important;
+    }
+
+    .iti__divider {
+        display: none;
+    }
+
+    .iti--allow-dropdown input {
+        background-color: transparent !important;
+        color: $color-primary-6 !important;
+        font-size: 14px !important;
+    }
+
+    .iti--allow-dropdown input::placeholder {
+        color: $color-primary-4 !important;
+        font-size: 14px !important;
+    }
+
+    .iti__flag-container {
+        padding-top: 0px !important;
+    }
+
+    .custom {
+        padding-left: 60px !important;
+    }
+
+    .dropdown-menu.show {
+        margin-top: 12px !important;
+        background-color: $color-primary-5 !important;
+    }
+
+    .iti.separate-dial-code.iti--allow-dropdown.iti-sdc-2 input input#country-search-box {
+        padding-left: 6px !important;
+    }
+
+    .country-dropdown {
+        margin-left: -12px !important;
+    }
+
+    .search-container {
+        input {
+            padding-left: 6px !important;
+            background-color: $color-primary-5 !important;
+            height: 40px !important;
+        }
+    }
+
+    .iti__selected-flag {
+        background-color: transparent !important;
+        width: 73px !important;
+    }
+
+    .iti--allow-dropdown input:focus-visible {
+        outline: -webkit-focus-ring-color auto 0px !important;
+    }
+
+    .iti__country-list {
+        width: 334px !important;
+        background-color: $color-primary-5 !important;
+        color: $color-primary-6 !important;
+        font-size: 12px !important;
+        max-height: 150px !important;
+
+        @media screen and (min-width: 320px) and (max-width: 400px) {
+            width: calc(245px + (100vw - 320px)) !important;
+        }
+
+
+        &::-webkit-scrollbar {
+            width: 5px !important;
+            height: 5px !important;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: none !important;
+            cursor: pointer !important;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #878686 !important;
+            border: 1px solid #878686 !important;
+            border-radius: 9px !important;
+            background-clip: content-box !important;
+            cursor: pointer !important;
+        }
+    }
+}

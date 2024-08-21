@@ -1,0 +1,33 @@
+@import "../assets/_partials/colors";
+
+.main-class {
+    background-color: $color-primary-2;
+    color: $color-primary-6;
+
+    .fixed-top {
+        z-index: 1000 !important;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+
+        .content {
+            // padding: clamp(20px, 10vw, 120px);
+            margin-top: 50px !important;
+            flex: 1;
+            overflow: scroll;
+            // padding-top: 60px;
+
+
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+    }
+
+
+}

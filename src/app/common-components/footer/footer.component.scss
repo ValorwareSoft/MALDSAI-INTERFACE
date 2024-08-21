@@ -1,0 +1,172 @@
+@import "../../../assets/_partials/colors";
+
+.footer {
+    background-color: $color-primary-5 !important;
+
+    .link {
+        text-decoration: none !important;
+        color: $color-primary-6 !important;
+        cursor: pointer;
+    }
+
+    .footer-sub-div-1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+        flex-wrap: wrap;
+
+        .division-1 {
+            max-width: 320px;
+            margin-bottom: 40px;
+
+            .logo-container {
+                font-family: "Nico Moji", sans-serif !important;
+                color: $color-primary-1;
+                font-size: 20px !important;
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px !important;
+
+                img {
+
+                    width: 40px !important;
+                    height: 40px !important;
+
+                }
+
+                .title {
+                    padding-left: 10px;
+                }
+            }
+
+            .sub-title {
+                font-size: 12px !important;
+                margin: 15px 0px !important;
+                margin-bottom: 20px !important;
+            }
+
+            .icons-section {
+                column-gap: 20px;
+                display: flex;
+
+            }
+        }
+
+        .division-2 {
+            display: flex;
+            column-gap: 80px;
+            margin-bottom: 40px;
+
+            span {
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 15px !important;
+            }
+
+            ul {
+                margin-top: 1rem;
+                margin-bottom: 0px !important;
+                padding-left: 0px !important;
+                font-size: 14px;
+
+                .link {
+                    line-height: 2 !important;
+                }
+            }
+        }
+
+        .division-3 {
+            max-width: 390px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+
+            .heading {
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .sub-heading {
+                color: $color-primary-4;
+                font-size: 12px;
+                margin-bottom: 20px;
+            }
+
+            .form-div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .form-control {
+                    background-color: transparent;
+                    border: 1px solid $color-primary-4;
+                    color: $color-primary-6;
+                    font-size: 14px;
+                    width: 270px;
+                    height: 40px;
+
+                    &:focus {
+                        box-shadow: none;
+                    }
+
+                    &::placeholder {
+                        color: $color-primary-4;
+                    }
+                }
+
+                .btn {
+
+                    color: $color-primary-6;
+                    font-size: 12px;
+                    height: 40px;
+                    cursor: pointer;
+                    padding: 7px 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0px;
+                    border-radius: 7px;
+                    background: linear-gradient($color-primary-2, $color-primary-2) padding-box,
+                        $linear-gradient-secondary border-box;
+                    border: 2px solid transparent;
+                }
+
+
+
+
+
+
+
+
+            }
+
+            .text-danger {
+                font-size: 10px;
+                padding-top: 5px;
+            }
+        }
+    }
+
+    .footer-sub-div-2 {
+        font-size: 12px !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+
+        @media screen and (max-width: 500px) {
+            flex-direction: column;
+            row-gap: 10px;
+        }
+
+        .circle {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: $color-primary-6 !important;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+    }
+}

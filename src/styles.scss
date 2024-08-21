@@ -1,7 +1,16 @@
+@import "../src/assets/_partials/colors";
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+
 body {
-    font-family: "Poppins", sans-serif !important;
+    font-family: "Open Sans", sans-serif !important;
 
     &::-webkit-scrollbar {
         display: none;
     }
+}
+
+
+.mat-mdc-card-content:last-child {
+    padding-bottom: 0px !important;
 }

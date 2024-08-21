@@ -22,7 +22,11 @@
     "@angular/router": "^16.0.0",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
-    "ngx-bootstrap": "^6.2.0",
+    "google-libphonenumber": "^3.2.34",
+    "intl-tel-input": "^17.0.3",
+    "ngx-bootstrap": "^11.0.2",
+    "ngx-intl-tel-input": "^3.2.0",
+    "ngx-toastr": "^18.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

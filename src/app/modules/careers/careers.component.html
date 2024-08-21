@@ -1,0 +1,89 @@
+<div class="main-div">
+    <div class="header-div">
+        <div class="title">
+            <span>Join Our Team at <br class="d-sm-none" > <span>MalDsAi Technologies</span></span>
+        </div>
+        <div class="sub-title">
+            Unlock your potential and join our team of innovators and problem solvers.
+        </div>
+    </div>
+
+    <div class="sub-header">
+        <div class="title">
+            <span> Welcome to MalDsAi Technologies, where talent meets opportunity!</span>
+        </div>
+        <div class="sub-title">
+            <span>At MalDsAi Technologies, we are always on the lookout for passionate individuals who share our
+                enthusiasm for data science and artificial intelligence. Whether you're an experienced professional or a
+                student eager to kick start your career, we offer exciting opportunities for collaboration and
+                internships in the dynamic field of AI and data science.</span>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="title">
+            <span>Why Work at MalDsAi Technologies ?</span>
+        </div>
+        <div class="cards-div">
+            <div class="card" *ngFor="let card of cards">
+                <div class="card-title">
+                    <span>{{ card.title }}</span>
+                </div>
+                <div class="card-content">
+                    <span>{{ card.content }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="openings">
+        <div class="title">
+            <span>Current Openings</span>
+        </div>
+        <div class="sub-title">
+            <span>We are always on the lookout for talented individuals who are passionate about creating exceptional
+                digital experiences. Whether you’re a designer, engineer, project manager, or have skills that align
+                with our agency’s mission. We encourage you to explore our open positions.</span>
+        </div>
+        <div class="current-openings" *ngIf="jobOpenings.length > 0">
+            <div *ngFor="let opening of jobOpenings">
+                <div class="jobs">
+                    <div class="title">
+                        <span>{{ opening.jobCategory }}</span>
+                        <hr>
+                    </div>
+                    <div class="cards-div">
+                        <div class="card" *ngFor="let job of opening.jobs">
+                            <div class="card-title">
+                                <span>{{ job.jobTitle }}</span>
+                                <span *ngIf="job.jobType"> - {{ job.jobType }}</span>
+                            </div>
+                            <div class="card-content">
+                                <span>{{ job.summary }}</span>
+                            </div>
+                            <div class="button-div">
+                                <button type="button" (click)="applyNow(job.jobid)">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+        <div class="current-openings" *ngIf="jobOpenings.length == 0">
+            dsjbjdsjhds
+        </div>
+    </div>
+
+    <div class="questions">
+        <span class="title">Still Have Questions?</span>
+        <span>We're here to help. If you have any questions about our open positions or the application process, please
+            contact us at <a href="mailto:careers@maldsai.com"> careers@maldsai.com </a> </span>
+    </div>
+
+</div>
