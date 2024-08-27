@@ -17,7 +17,7 @@ export class CareersComponent {
     },
     {
       title: 'Continuous Learning & Growth',
-      content: 'Invest in your professional development with ongoing learning opportunities tailored to your career aspirations. Whether through mentorship programs, skill-building workshops, or access to the latest technologies, we empower you to evolve and excel.'
+      content: 'Invest in your professional development with ongoing learning opportunities tailored to your career aspirations. Whether through mentorship programs, skill-building workshops, or access to the latest Laboratory, we empower you to evolve and excel.'
     },
     {
       title: 'Challenging & Rewarding Work',
@@ -32,7 +32,7 @@ export class CareersComponent {
 
   jobOpenings: any = [];
 
-  constructor(){
+  constructor() {
     this.jobOpenings = [
       {
         jobCategory: "Design Job Openings",

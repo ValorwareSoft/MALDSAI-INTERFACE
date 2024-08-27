@@ -2,7 +2,6 @@ import { Component, AfterViewInit, HostListener, ElementRef, Renderer2 } from '@
 import { CommonModule } from '@angular/common';
 import { ScheduleDemoDialogComponent } from 'src/app/common-components/schedule-demo-dialog/schedule-demo-dialog.component';
 import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
-import { DialogConfig } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-pricing',

@@ -1,0 +1,235 @@
+<app-banner></app-banner>
+
+<div class="content-div">
+    <div class="custom-div">
+        <div class="image-div">
+            <img src="../../../assets/images/mission1.png" alt="AI Solutions">
+        </div>
+        <div class="title-div">
+            <span class="header">Our Mission</span>
+            <span class="sub-header">
+                Our mission is to transform potential into performance by redefining what’s possible. We are committed
+                to enabling our clients to achieve extraordinary outcomes through innovative solutions that push the
+                boundaries of data science. Excellence drives us to continuously improve, ensuring that our clients
+                benefit from enhanced efficiency, quality, and value.
+            </span>
+        </div>
+    </div>
+    <div class="custom-div">
+        <div class="image-div">
+            <img src="../../../assets/images/vision1.png" alt="AI Solutions">
+        </div>
+        <div class="title-div">
+            <span class="header">Our Vision</span>
+            <span class="sub-header">
+                Our vision is to lead the future of data science by pioneering innovative solutions that empower growth,
+                inspire change, and set new industry standards. We aim to be the catalyst for transformation, helping
+                businesses across all sectors harness the power of data to drive success and achieve their full
+                potential.
+            </span>
+        </div>
+    </div>
+    <div class="core-values-section">
+        <h2>Our Core Values</h2>
+        <div class="core-values-container">
+            <div class="core-value-card">
+                <div class="icon">
+                    <img src="../../../assets/images/innovation.png" alt="Innovation Icon">
+                </div>
+                <h3>Innovation</h3>
+                <p>We are driven by a passion for innovation, constantly exploring new ways to create solutions that not
+                    only
+                    meet but exceed industry standards.</p>
+            </div>
+            <div class="core-value-card">
+                <div class="icon">
+                    <img src="../../../assets/images/excellence.png" alt="Excellence Icon">
+                </div>
+                <h3>Excellence</h3>
+                <p>We strive for excellence in every aspect of our work, ensuring that our clients receive the highest
+                    quality
+                    and value.</p>
+            </div>
+            <div class="core-value-card">
+                <div class="icon">
+                    <img src="../../../assets/images/growth.png" alt="Growth Icon">
+                </div>
+                <h3>Growth</h3>
+                <p>We believe in empowering growth by providing businesses with the insights and tools they need to
+                    thrive in a
+                    competitive market.</p>
+            </div>
+            <div class="core-value-card">
+                <div class="icon">
+                    <img src="../../../assets/images/collaboration.png" alt="Collaboration Icon">
+                </div>
+                <h3>Collaboration</h3>
+                <p>We embrace diverse perspectives and innovative ideas, believing that collaboration is key to
+                    achieving
+                    shared success and growth.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="about-us-container">
+        <div class="about-us-content what-we-do">
+            <div class="icon">
+                <img src="../../../assets/images/analyticsIcon.png" alt="Analytics Icon">
+            </div>
+            <h2>What We Do</h2>
+            <p>We specialize in harnessing the power of advanced analytics, machine learning, and AI to deliver
+                tailored
+                solutions and actionable insights.</p>
+            <ul>
+                <li>Advanced Analytics</li>
+                <li>Machine Learning Models</li>
+                <li>AI-Driven Solutions</li>
+            </ul>
+            <p>Our seasoned data scientists work closely with you to empower data-driven decisions with confidence
+                and
+                efficiency.</p>
+            <a href="services" class="cta-button">Learn More</a>
+        </div>
+        <div class="about-us-content why-choose-us">
+            <div class="icon">
+                <img src="../../../assets/images/InnovationIcon.png" alt="Innovation Icon">
+            </div>
+            <h2>Why Choose Us</h2>
+            <p>Break free from traditional analysis and embrace the future with MalDsAi Laboratory.</p>
+            <ul>
+                <li>Future-Proof Solutions</li>
+                <li>Exceptional Quality</li>
+                <li>Customer Delight</li>
+            </ul>
+            <p>We are committed to delivering products and experiences that not only meet but exceed your
+                expectations.</p>
+            <a href="contact-us" class="cta-button">Get in Touch</a>
+        </div>
+    </div>
+
+    <div class="our-team-section">
+        <h2>Our Team</h2>
+        <p>Our team is composed of seasoned data scientists, AI specialists, and technology enthusiasts who are
+            passionate about solving complex challenges. With diverse backgrounds and expertise, our team members bring
+            a wealth of knowledge and experience to every project, ensuring innovative and effective solutions for our
+            clients.</p>
+
+        <div class="team-grid">
+            <div class="team-member" *ngFor="let member of teamMembers">
+                <img [src]="member.image" [alt]="member.name" class="member-image">
+                <h3>{{ member.name }}</h3>
+                <p>{{ member.position }}</p>
+                <p>{{ member.description }}</p>
+                <div class="social-icons">
+                    <a [href]="member.linkedin" target="_blank" *ngIf="member.linkedin"><i
+                            class="bi bi-linkedin"></i></a>
+                    <a [href]="member.twitter" target="_blank" *ngIf="member.twitter"><i class="bi bi-twitter"></i></a>
+                    <a [href]="member.instagram" target="_blank" *ngIf="member.instagram"><i
+                            class="bi bi-instagram"></i></a>
+                    <a [href]="member.facebook" target="_blank" *ngIf="member.facebook"><i
+                            class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="how-we-work-section">
+        <h2>How We Work?</h2>
+        <div class="route-map" #routeMap>
+            <div class="step-container" *ngFor="let step of workSteps; let i = index">
+                <div class="route-step">
+                    <div class="step-icon">
+                        <i [ngClass]="step.icon"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>{{ step.title }}</h3>
+                        <p>{{ step.description }}</p>
+                    </div>
+                </div>
+                <div class="route-arrow" *ngIf="i < workSteps.length - 1">
+                    <i class="bi bi-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="success-stories-section">
+        <h2>Success Stories</h2>
+        <p class="intro-text">
+            We have a proven track record of success across various industries. Our innovative solutions have helped
+            businesses
+            enhance efficiency, drive growth, and achieve their strategic goals. Explore our success stories to see how
+            we’ve made a
+            difference for our clients.
+        </p>
+
+        <div class="highlighted-story">
+            <img src="../../../assets/images/image copy 4.png" alt="Highlighted Success Story"
+                class="highlighted-image">
+            <div class="highlighted-content">
+                <h3>{{ highlightedStory.title }}</h3>
+                <p><strong>Challenge:</strong> {{ highlightedStory.challenge }}</p>
+                <p><strong>Solution:</strong> {{ highlightedStory.solution }}</p>
+                <p><strong>Outcome:</strong> {{ highlightedStory.outcome }}</p>
+                <a href="{{ highlightedStory.link }}" class="read-more">Read More</a>
+            </div>
+        </div>
+
+        <div class="stories-grid">
+            <div *ngFor="let story of successStories" class="story-card">
+                <img [src]="story.image" alt="{{ story.title }}" class="story-image">
+                <div class="story-content">
+                    <h4>{{ story.title }}</h4>
+                    <p>{{ story.shortDescription }}</p>
+                    <a href="{{ story.link }}" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="join-contact-section">
+        <div class="join-community-section">
+            <h2>Join Our Community</h2>
+            <p>
+                We believe in fostering a community of innovation and learning. Join our network of forward-thinking
+                professionals
+                and businesses who are committed to leveraging data science and AI for transformative success. Stay
+                connected with us
+                through our events, webinars, and industry insights.
+            </p>
+            <button class="join-button">Join Now</button>
+        </div>
+
+        <div class="contact-us-section">
+            <h2>Contact Us</h2>
+            <p>
+                Ready to unlock the hidden potential within your data? Contact us today to learn how MalDsAi Laboratory
+                can help you
+                achieve your goals. Whether you’re looking for a consultation, a partnership, or just more information,
+                we’re here to
+                assist you.
+            </p>
+            <button class="contact-button">Get in Touch</button>
+        </div>
+    </div>
+
+
+    <div class="faq-div">
+        <app-faq></app-faq>
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
