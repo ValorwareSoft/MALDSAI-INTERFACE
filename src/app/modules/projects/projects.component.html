@@ -1,1 +1,78 @@
-<p>projects works!</p>
+<app-banner title="Our Projects"></app-banner>
+<div class="filter-bar">
+    <input type="text" class="form-control" placeholder="Search Projects..." [(ngModel)]="searchTerm" />
+    <mat-select [(ngModel)]="filterCategory" class="form-control" placeholder="Select Category">
+        <mat-option class="hide-check-box" value="">All Categories</mat-option>
+        <mat-option class="hide-check-box" *ngFor="let category of categories" [value]="category">{{ category
+            }}</mat-option>
+    </mat-select>
+</div>
+
+<div class="project-div">
+    <div *ngIf="filteredProjects().length === 0" class="no-projects">
+        <img src="../../../assets/images/noProjects.png" alt="No Projects Available" />
+        <p>No matching projects at the moment. Please check back later.</p>
+    </div>
+    <div class="projects-container" *ngIf="filteredProjects().length > 0">
+
+
+        <div class="project-card" *ngFor="let project of filteredProjects()">
+            <img [src]="project.thumbnail" alt="{{ project.title }}" class="project-thumbnail" />
+            <div class="project-info">
+                <h3 class="project-title">{{ project.title }}</h3>
+                <p class="project-description">{{ project.overview }}</p>
+                <button class="view-details-btn" (click)="openModal(project)">View Details</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="modal" *ngIf="selectedProject">
+        <div class="modal-content">
+            <span class="close" (click)="closeModal()"><i class="bi bi-x-lg"></i></span>
+            <h2>{{ selectedProject.title }}</h2>
+            <p><strong>Client:</strong> {{ selectedProject.client }}</p>
+
+            <div class="section">
+                <h3>Project Overview</h3>
+                <p>{{ selectedProject.overview }}</p>
+            </div>
+
+            <div class="section">
+                <h3>The Challenge</h3>
+                <p>{{ selectedProject.challenge }}</p>
+            </div>
+
+            <div class="section">
+                <h3>Our Solution</h3>
+                <p>{{ selectedProject.solution }}</p>
+            </div>
+
+            <div class="section">
+                <h3>Key Features</h3>
+                <ul>
+                    <li *ngFor="let feature of selectedProject.features">{{ feature }}</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Results and Impact</h3>
+                <p>{{ selectedProject.results }}</p>
+            </div>
+
+            <div class="section">
+                <h3>Client Testimonial</h3>
+                <blockquote>{{ selectedProject.testimonial }}</blockquote>
+            </div>
+
+            <div class="project-gallery">
+                <h3>Project Gallery</h3>
+                <div class="gallery-images">
+                    <img *ngFor="let image of selectedProject.images" [src]="image"
+                        alt="{{ selectedProject.title }} Image" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -117,7 +117,7 @@ $width: 100%;
     }
 }
 
-.service-div {
+.banner-div {
     position: relative;
     z-index: 100;
     display: flex;
@@ -204,93 +204,14 @@ $width: 100%;
     .image-div {
         img {
             width: clamp(250px,
-                    calc(320px + (400 - 250) * ((100vw - 320px) / (1024 - 320))),
-                    400px);
+                    calc(320px + (300 - 250) * ((100vw - 320px) / (1024 - 320))),
+                    300px);
             max-width: 100%;
             height: auto;
             padding: 20px;
 
             @media (max-width: 1024px) {
                 margin-bottom: 30px;
-            }
-        }
-    }
-}
-
-
-.video-div {
-    padding: clamp(20px,
-            calc(20px + (60 - 20) * ((100vw - 320px) / (1200 - 320))),
-            60px) !important;
-    display: flex;
-    align-items: center;
-    // column-gap: 100px;
-
-    @media screen and (max-width:768px) {
-        flex-direction: column;
-        gap: 50px;
-    }
-
-    .card {
-        background-color: $color-primary-5;
-        padding: 30px !important;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: row;
-        width: 400px;
-        column-gap: 30px;
-
-        .image-link {
-            .title {
-                color: $color-primary-6 !important;
-                font-weight: 600;
-
-                margin-bottom: 5px;
-                font-size: 18px;
-            }
-
-            .sub-title {
-                a {
-                    text-decoration: none;
-                    color: $color-primary-1 !important;
-                    font-size: 16px !important;
-                    display: flex;
-                    align-items: center;
-                    column-gap: 10px;
-
-                    i {
-                        font-size: 30px;
-                    }
-                }
-            }
-        }
-    }
-
-    .score-div {
-        display: flex;
-        align-items: center;
-        flex-grow: 1;
-        justify-content: center;
-        column-gap: 100px;
-
-        .score {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-
-
-            .head {
-                font-size: 30px;
-                font-weight: 600;
-                color: $color-primary-1;
-            }
-
-            .sub-head {
-                font-size: 14px;
-                color: $color-primary-4;
             }
         }
     }

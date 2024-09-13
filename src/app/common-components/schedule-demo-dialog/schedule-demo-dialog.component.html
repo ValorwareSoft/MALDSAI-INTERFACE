@@ -7,7 +7,7 @@
   <div class="left-container">
     <div class="logo-container">
       <img src="../../../assets/images/logo.png" alt="MalDsAi Logo">
-      <span>MalDsAi Technologies</span>
+      <span>MalDsAi Laboratory</span>
     </div>
     <div class="demo-info">
       <p class="heading">Product Demo</p>
@@ -127,8 +127,7 @@
 
         <div class="form-group">
           <label for="timeZone">Time Zone</label>
-          <mat-select formControlName="timeZone" class="form-control"
-            placeholder="Select Time Zone">
+          <mat-select formControlName="timeZone" class="form-control" placeholder="Select Time Zone">
             <mat-option class="hide-check-box" *ngFor="let tz of timeZones" [value]="tz">{{tz}}</mat-option>
           </mat-select>
           <div class="errors" *ngIf="getErrorMessage('timeZone')">
@@ -138,8 +137,7 @@
 
         <div class="form-group">
           <label for="time">Time</label>
-          <mat-select formControlName="time" class="form-control"
-            placeholder="Select Time">
+          <mat-select formControlName="time" class="form-control" placeholder="Select Time">
             <mat-option class="hide-check-box" *ngFor="let time of timeSlots" [value]="time">{{time}}</mat-option>
           </mat-select>
           <div class="errors" *ngIf="getErrorMessage('time')">
