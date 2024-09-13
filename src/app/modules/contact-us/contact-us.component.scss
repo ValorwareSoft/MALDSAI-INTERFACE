@@ -1,6 +1,10 @@
 @import "../../../assets/_partials/base";
 
 
+.padding {
+    padding: 80px !important;
+}
+
 mat-card {
     background-color: $color-primary-5;
     padding: 20px !important;
